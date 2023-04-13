@@ -53,7 +53,7 @@ namespace Game
         {
             if (Engine.GetKey(Keys.SPACE))
             {
-               pp.AddMove(new Vector2(10 * deltaTime, 10 * deltaTime));
+               pp.AddMove(new Vector2(10 * deltaTime, _posY));
             }
 
             for (int i = 0; i < bullets.Count; i++)
