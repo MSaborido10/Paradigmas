@@ -16,8 +16,10 @@ namespace Game
 
         static float _rot = 0;
 
-        static Character ship;
-        static Character pp;
+        //static Character ship;
+        static Character character;
+        static Player player;
+        static Enemy enemy;
 
         static List<Bullet> bullets = new List<Bullet>();
 
@@ -28,40 +30,31 @@ namespace Game
 
         static void Main(string[] args)
         {
-            Engine.Initialize();
-            pp = new Character(new Vector2(100,100));
-            ship = new Character(new Vector2(150,100));
+            Engine.Initialize("Pruebas",1920,1080);
+            character = new Character(new Vector2(100,100));
+            player = new Player();
+            enemy = new Enemy();
             idle = CreateAnimation();
             currentAnimation = idle;
 
-            characters.Add(pp);
-            characters.Add(ship);
+            characters.Add(character);
 
             SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
             //myplayer.PlayLooping();
 
+            player.playerCharacter.transform.position = new Vector2(960, 540);
+            enemy.enemyCharacters.transform.position = new Vector2(960, 0);
+
             while (true)
             {
                 calcDeltatime();
-
                 Update();
                 Draw();
             }
         }
 
         static void Update()
-        {
-            if (Engine.GetKey(Keys.SPACE))
-            {
-               pp.AddMove(new Vector2(10 * deltaTime, _posY));
-            }
-
-            for (int i = 0; i < bullets.Count; i++)
-            {
-                bullets[i].Update();
-            }
-
-
+        {        
             foreach (var character in characters)
             {
                 for (int i = 0; i < characters.Count; i++)
@@ -75,17 +68,16 @@ namespace Game
             }
 
             //currentAnimation.Update();
-            ship.Update();
-            pp.Update();
+            character.Update();
+            player.Update();
+            enemy.Update();
         }
 
         static void Draw()
         {
             Engine.Clear();
-
-           
-            ship.Render();
-            pp.Render();
+            player.playerCharacter.Render();
+            enemy.enemyCharacters.Render();
             for (int i = 0; i < bullets.Count; i++)
             {
                 if (!bullets[i].Draw)
@@ -109,11 +101,7 @@ namespace Game
             lastFrameTime = DateTime.Now;
         }
 
-
-        static void Shoot()
-        {
-            bullets.Add(new Bullet(_posX + 230, _posY + 60, _rot));
-        }
+               
 
         private static Animation CreateAnimation()
         {

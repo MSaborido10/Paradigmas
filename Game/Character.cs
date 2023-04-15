@@ -8,9 +8,9 @@ namespace Game
 {
     public class Character
     {
-        private float life = 100f;
+        public Transform transform;
 
-        private Transform transform;
+        private float life = 100f;
 
         private float speed = 0;
 
@@ -31,6 +31,11 @@ namespace Game
             currentAnimation.Reset();
         }
 
+        public void Start() 
+        {
+
+        }
+
         public void Update()
         {
             currentAnimation.Update();
@@ -46,10 +51,15 @@ namespace Game
             life -= damage;
         }
 
-        public void Kill()
+        public void Reposition(float posX, float posY)
+        {
+            transform.position = new Vector2(posX, posY);
+        }
+
+        /*public void Kill()
         {
 
-        }
+        }*/
 
         private Animation CreateAnimation(string p_animationID, string p_path,int p_texturesAmount,float p_animationSpeed)
         {
@@ -101,9 +111,19 @@ namespace Game
         }
 
 
-        public void AddMove(Vector2 pos)
+        public void LeftMovement()
         {
-            transform.position.x += pos.x;
+            transform.position.x --;
+        }
+
+        public void RightMovement()
+        {
+            transform.position.x ++;
+        }
+
+        public void TopToDownMovement()
+        {
+            transform.position.y++;
         }
     }
 }

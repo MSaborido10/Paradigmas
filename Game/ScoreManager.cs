@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class GameManager
+    public class ScoreManager
     {
-        private static GameManager instance;
+        private static ScoreManager instance;
 
         private int score = 0;
 
@@ -19,13 +19,13 @@ namespace Game
             score += pointsToAdd;
         }
 
-        public static GameManager Instance 
+        public static ScoreManager Instance 
         { 
             get 
             { 
                 if (instance == null) 
                 {
-                    instance = new GameManager();
+                    instance = new ScoreManager();
                 }
                 return instance; 
             } 
