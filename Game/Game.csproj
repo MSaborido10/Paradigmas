@@ -42,7 +42,9 @@
     <Compile Include="Character.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="MainMenu.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Promt.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +60,8 @@
     <Content Include="3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Animations\MenuPrompt\0.png" />
+    <Content Include="Animations\MenuPrompt\1.png" />
     <Content Include="Animations\player\idle1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class GameObject
+    internal class MainMenu
     {
+        public GameObject startPromt;
+
+
+
     }
 }

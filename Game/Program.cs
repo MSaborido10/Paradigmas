@@ -19,6 +19,8 @@ namespace Game
         static Character ship;
         static Character pp;
 
+        static Promt startPromt;
+
         static List<Bullet> bullets = new List<Bullet>();
 
         static Animation currentAnimation = null;
@@ -29,8 +31,12 @@ namespace Game
         static void Main(string[] args)
         {
             Engine.Initialize();
+
             pp = new Character(new Vector2(100,100));
             ship = new Character(new Vector2(150,100));
+
+            startPromt = new Promt(1, new Vector2(150, 150));
+
             idle = CreateAnimation();
             currentAnimation = idle;
 
@@ -77,6 +83,8 @@ namespace Game
             //currentAnimation.Update();
             ship.Update();
             pp.Update();
+
+            startPromt.Update();
         }
 
         static void Draw()
@@ -86,6 +94,9 @@ namespace Game
            
             ship.Render();
             pp.Render();
+
+            startPromt.Render();
+
             for (int i = 0; i < bullets.Count; i++)
             {
                 if (!bullets[i].Draw)
@@ -129,5 +140,7 @@ namespace Game
 
             return idleAnimation;
         }
+
+
     }
 }
