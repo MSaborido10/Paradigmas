@@ -237,3 +237,5 @@ D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de 
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Game.exe.config
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Game.exe
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Game.pdb
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\MenuPrompt\0.png
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\MenuPrompt\1.png

@@ -32,6 +32,7 @@ namespace Game
                 for (int i = 0; i <= 1; i++)
                 {
                     frames.Add(Engine.GetTexture($"Animations/MenuPrompt/{i}.png"));
+                    Engine.Debug($"Loaded texture {i}");
                 }
 
                 startPromt = new Animation("startPromt", frames, 1, true);
