@@ -10,6 +10,8 @@ namespace Game
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
 
+        public static int screen;
+
         static float _posY = 305;
         static float _posX = 305;
         static float _speed = 100;
@@ -19,7 +21,7 @@ namespace Game
         static Character ship;
         static Character pp;
 
-        static Promt startPromt;
+        static MainMenu mainMenu;
 
         static List<Bullet> bullets = new List<Bullet>();
 
@@ -35,7 +37,8 @@ namespace Game
             pp = new Character(new Vector2(100,100));
             ship = new Character(new Vector2(150,100));
 
-            startPromt = new Promt(1, new Vector2(150, 150));
+            mainMenu = new MainMenu();
+            mainMenu.CreatePromt();
 
             idle = CreateAnimation();
             currentAnimation = idle;
@@ -44,7 +47,6 @@ namespace Game
             characters.Add(ship);
 
             SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
-            //myplayer.PlayLooping();
 
             while (true)
             {
@@ -57,6 +59,22 @@ namespace Game
 
         static void Update()
         {
+            switch (screen) 
+            {
+                case 0:
+                    mainMenu.Update();
+                    break;
+                case 1:
+                    //level Update
+                    break;
+                case 2:
+                    //victory screen Update
+                    break;
+                case 3:
+                    //defeat screen Update
+                    break;
+            }
+
             if (Engine.GetKey(Keys.SPACE))
             {
                pp.AddMove(new Vector2(10 * deltaTime, 10 * deltaTime));
@@ -75,7 +93,7 @@ namespace Game
                     if(character != characters[i])
                         if (character.IsBoxColliding(characters[i]))
                         {
-                            Engine.Debug("ESTOY COLISIONANDO");
+                            //Engine.Debug("ESTOY COLISIONANDO");
                         }
                 }
             }
@@ -84,7 +102,7 @@ namespace Game
             ship.Update();
             pp.Update();
 
-            startPromt.Update();
+            //startPromt.Update();
         }
 
         static void Draw()
@@ -95,7 +113,8 @@ namespace Game
             ship.Render();
             pp.Render();
 
-            startPromt.Render();
+            //startPromt.Render();
+            mainMenu.Render();
 
             for (int i = 0; i < bullets.Count; i++)
             {

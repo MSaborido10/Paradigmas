@@ -8,9 +8,32 @@ namespace Game
 {
     internal class MainMenu
     {
-        public GameObject startPromt;
+        private Promt startPromt;
+        private bool keyWasPressed;
+        public bool KeyWasPressed { get { return keyWasPressed;}}
 
+        public void CreatePromt()
+        {
+            startPromt = new Promt(1, new Vector2(150, 150));
+        }
 
+        public void Render() {
+          
+          
+          startPromt.Render();
+
+        }
+
+        public void Update()
+        {
+            
+            startPromt.Update();
+
+            if (Engine.GetKey(Keys.SPACE))
+            {
+                keyWasPressed = true;
+            }
+        }
 
     }
 }
