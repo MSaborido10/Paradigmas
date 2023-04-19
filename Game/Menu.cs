@@ -8,6 +8,7 @@ namespace Game
 {
     internal class Menu
     {
+        private Promt title;
         private Promt menuPromt;
         private int promtType;
 
@@ -17,6 +18,14 @@ namespace Game
             this.promtType = promtType;
             CreateflashPromt();
 
+        }
+
+        public void CreateTitle()
+        {
+            if(promtType == 0)
+            {
+                //title = new Promt()
+            }
         }
 
         public void CreateflashPromt()
