@@ -6,65 +6,45 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Character
-    {
-        private float life = 100f;
-
-        private Transform transform;
-
-        private float speed = 0;
+    public class Character : GameObject
+    {       
+        protected float speed = 1000f;
 
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
-        public Transform Transform => transform;
-        
         Animation currentAnimation = null;
         Animation idle;
-
-        //List<Animation> animations = new List<Animation>();
 
         public Character(Vector2 initialPos)
         {
             idle = CreateAnimation("Idle","",4,2);
             transform = new Transform(initialPos,0,new Vector2(1,1));
 
-            currentAnimation = idle;// GetAnimation("Idle");
+            currentAnimation = idle;
             currentAnimation.Reset();
         }
 
-        public void Update()
+        public void Start() 
+        {
+
+        }
+
+        public override void Update()
         {
             currentAnimation.Update();
         }
 
-        public void Render()
+        public override void Render()
         {
-            Engine.Draw(currentAnimation.CurrentFrame,transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
+            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }
 
-        public void DamageLife(int damage)
-        {
-            life -= damage;
-        }
+        
 
-        public void Kill()
+        /*public void Kill()
         {
 
-        }
-
-      /*  private Animation GetAnimation(string id)
-        {
-            for (int i = 0; i < animations.Count; i++)
-            {
-                if (animations[i].Id == id)
-                {
-                    return animations[i];
-                }
-            }
-
-            Engine.Debug($"No se encontró la animación con el id: {id}");
-            return null;
         }*/
 
         private Animation CreateAnimation(string p_animationID, string p_path,int p_texturesAmount,float p_animationSpeed)
@@ -116,11 +96,5 @@ namespace Game
             return false;
         }
 
-
-        public void AddMove(Vector2 pos)
-        {
-            transform.position.x += pos.x;
-            transform.position.y += pos.y;
-        }
     }
 }

@@ -238,6 +238,7 @@ namespace Game
             if (!WindowOpened) return false;
             return GetKey((int)key);
         }
+        
         public static bool GetKeyDown(Keys key) => GetKey((int)key);
 
         [DllImport("Engine.dll", CallingConvention = CallingConvention.Cdecl)]

@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class GameObject
+    public class GameObject
     {
+        public Transform transform;
+
+        public Transform Transform => transform;
+
+        public virtual void Update()
+        {
+            
+        }
+
+        public virtual void Render()
+        {
+
+        }
     }
 }

@@ -19,8 +19,8 @@ namespace Game
     }
     public struct Transform
     {
-        public Vector2 position;
         public float rotation;
+        public Vector2 position;
         public Vector2 scale;
 
         public Transform(Vector2 p_initialPosition,float p_initialRotation,Vector2 p_scale)
@@ -28,7 +28,6 @@ namespace Game
             position = p_initialPosition;
             rotation = p_initialRotation;
             scale = p_scale;
-
         }
     }
 }
