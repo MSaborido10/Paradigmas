@@ -40,14 +40,12 @@
     <Compile Include="Animation.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="Obstacle.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameObject.cs" />
-    <Compile Include="MainMenu.cs" />
-    <Compile Include="Menu.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="ScoreManager.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Promt.cs" />
-    <Compile Include="Screen.cs" />
-    <Compile Include="ScreenManager.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,18 +59,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\ContinuePromt\0.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\ContinuePromt\1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\MenuPrompt\0.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\MenuPrompt\1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Animations\player\idle1.png">
@@ -205,15 +191,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Animations\player\run_left8.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\Titles\0.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\Titles\1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\Titles\2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Engine.dll">
