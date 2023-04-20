@@ -21,7 +21,7 @@ namespace Game
         static Character ship;
         static Character pp;
 
-        static MainMenu mainMenu;
+        static ScreenManager screenManager;
 
         static List<Bullet> bullets = new List<Bullet>();
 
@@ -37,8 +37,6 @@ namespace Game
             pp = new Character(new Vector2(100,100));
             ship = new Character(new Vector2(150,100));
 
-            mainMenu = new MainMenu();
-            mainMenu.CreatePromt();
 
             idle = CreateAnimation();
             currentAnimation = idle;
@@ -59,21 +57,7 @@ namespace Game
 
         static void Update()
         {
-            switch (screen) 
-            {
-                case 0:
-                    mainMenu.Update();
-                    break;
-                case 1:
-                    //level Update
-                    break;
-                case 2:
-                    //victory screen Update
-                    break;
-                case 3:
-                    //defeat screen Update
-                    break;
-            }
+            ScreenManager.Update();
 
             if (Engine.GetKey(Keys.SPACE))
             {
