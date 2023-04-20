@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class ScreenManager
+    public class ScreenManager
     {
         private static ScreenManager instance;
         public static ScreenManager Instance { get { if (instance == null) { instance = new ScreenManager(); } return instance; } }
