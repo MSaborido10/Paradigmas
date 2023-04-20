@@ -6,33 +6,44 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Enemy
+    public class Obstacle : Character
     {
 
         public static Vector2 pos = new Vector2();
 
         public Character enemyCharacters = new Character(pos);
-        public Enemy() 
+        public Obstacle(Vector2 pos) : base(pos)
         {
             pos = enemyCharacters.Transform.position;
         }
 
         private void EnemyMovement()
         {
-            enemyCharacters.TopToDownMovement();            
+            TopToDownMovement();      
         }
 
         public void Start()
         {
 
         }
-        public void Update()
+
+        public void TopToDownMovement()
+        {
+            enemyCharacters.transform.position.y++;
+        }
+
+        public void Reposition(float posX, float posY)
+        {
+            enemyCharacters.transform.position = new Vector2(posX, posY);
+        }
+
+        public override void Update()
         {
             EnemyMovement();
 
             if(enemyCharacters.transform.position.y >= 1080)
             {
-                enemyCharacters.Reposition(960,0);
+                Reposition(960,0);
             }
         }
     }

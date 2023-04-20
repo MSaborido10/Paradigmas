@@ -6,26 +6,36 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Player
+    public class Player : Character
     {
         public static Vector2 pos = new Vector2();
 
         public Character playerCharacter = new Character(pos);
-        public Player()
+        public Player(Vector2 pos) : base(pos)
         {
             pos = playerCharacter.Transform.position;
         }
 
         private void Inputs()
         {
-            if (Engine.GetKey(Keys.D))
+            if (Engine.GetKey(Keys.D) && playerCharacter.transform.position.x <= 1920)
             {
-                playerCharacter.RightMovement();
+                RightMovement();
             }
-            else if (Engine.GetKey(Keys.A))
+            else if (Engine.GetKey(Keys.A) && playerCharacter.transform.position.x >= 0)
             {
-                playerCharacter.LeftMovement();
+                LeftMovement();
             }
+        }
+
+        public void LeftMovement()
+        {
+            playerCharacter.transform.position.x -= speed * Program.deltaTime;
+        }
+
+        public void RightMovement()
+        {
+            playerCharacter.transform.position.x += speed * Program.deltaTime;
         }
 
         public void Start()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Media;
 
 namespace Game
@@ -9,17 +10,14 @@ namespace Game
         //variables deltatime
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
+        private static int screenWidth = 1920;
+        private static int screenHeight = 1080;
 
-        static float _posY = 305;
-        static float _posX = 305;
-        static float _speed = 100;
-
-        static float _rot = 0;
 
         //static Character ship;
         static Character character;
         static Player player;
-        static Enemy enemy;
+        static Obstacle enemy;
 
         static List<Bullet> bullets = new List<Bullet>();
 
@@ -30,11 +28,10 @@ namespace Game
 
         static void Main(string[] args)
         {
-            Engine.Initialize("Pruebas",1920,1080);
-            character = new Character(new Vector2(100,100));
-            player = new Player();
-            enemy = new Enemy();
-            idle = CreateAnimation();
+            Engine.Initialize("Pruebas", screenWidth, screenHeight);
+            player = new Player(new Vector2(960, 900));
+            enemy = new Obstacle(new Vector2(100, 100));
+            //idle = CreateAnimation();
             currentAnimation = idle;
 
             characters.Add(character);
@@ -67,8 +64,6 @@ namespace Game
                 }
             }
 
-            //currentAnimation.Update();
-            character.Update();
             player.Update();
             enemy.Update();
         }
@@ -103,19 +98,19 @@ namespace Game
 
                
 
-        private static Animation CreateAnimation()
-        {
-            // Idle Animation
-            List<Texture> idleFrames = new List<Texture>();
+        //private static Animation CreateAnimation()
+        //{
+        //    // Idle Animation
+        //    List<Texture> idleFrames = new List<Texture>();
 
-            for (int i = 0; i < 4; i++)
-            {
-                idleFrames.Add(Engine.GetTexture($"{i}.png"));
-            }
+        //    for (int i = 0; i < 4; i++)
+        //    {
+        //        idleFrames.Add(Engine.GetTexture($"{i}.png"));
+        //    }
 
-            Animation idleAnimation = new Animation("Idle", idleFrames, 2, true);
+        //    Animation idleAnimation = new Animation("Idle", idleFrames, 2, true);
 
-            return idleAnimation;
-        }
+        //    return idleAnimation;
+        //}
     }
 }

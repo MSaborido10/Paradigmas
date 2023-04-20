@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Character
-    {
-        public Transform transform;
-
-        private float life = 100f;
-
-        private float speed = 0;
+    public class Character : GameObject
+    {       
+        protected float speed = 1000f;
 
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
-        public Transform Transform => transform;
-        
         Animation currentAnimation = null;
         Animation idle;
 
@@ -36,25 +30,17 @@ namespace Game
 
         }
 
-        public void Update()
+        public override void Update()
         {
             currentAnimation.Update();
         }
 
-        public void Render()
+        public override void Render()
         {
-            Engine.Draw(currentAnimation.CurrentFrame,transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
+            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }
 
-        public void DamageLife(int damage)
-        {
-            life -= damage;
-        }
-
-        public void Reposition(float posX, float posY)
-        {
-            transform.position = new Vector2(posX, posY);
-        }
+        
 
         /*public void Kill()
         {
@@ -110,20 +96,5 @@ namespace Game
             return false;
         }
 
-
-        public void LeftMovement()
-        {
-            transform.position.x --;
-        }
-
-        public void RightMovement()
-        {
-            transform.position.x ++;
-        }
-
-        public void TopToDownMovement()
-        {
-            transform.position.y++;
-        }
     }
 }
