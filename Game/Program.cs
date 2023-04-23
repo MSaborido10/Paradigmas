@@ -14,80 +14,48 @@ namespace Game
         private static int screenHeight = 1080;
 
 
-        //static Character ship;
-        static Character character;
-        static Player player;
-        static Obstacle enemy;
-
-        static List<Bullet> bullets = new List<Bullet>();
-
         static Animation currentAnimation = null;
         static Animation idle;
 
-        static List<Character> characters = new List<Character>();
+        
 
         static void Main(string[] args)
         {
             Engine.Initialize("Pruebas", screenWidth, screenHeight);
-            player = new Player(new Vector2(960, 900));
-            enemy = new Obstacle(new Vector2(100, 100));
-            //idle = CreateAnimation();
-            currentAnimation = idle;
-
-            characters.Add(character);
-
-            SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
-            //myplayer.PlayLooping();
-
-            player.playerCharacter.transform.position = new Vector2(960, 540);
-            enemy.enemyCharacters.transform.position = new Vector2(960, 0);
+            GameManager.Instance.InitializeScene();
+            GameManager.Instance.StartManager();
 
             while (true)
             {
                 calcDeltatime();
-                Update();
-                Draw();
+                GameManager.Instance.UpdateManager();
+                //Update();
+                //Draw();
             }
         }
 
-        static void Update()
-        {        
-            foreach (var character in characters)
-            {
-                for (int i = 0; i < characters.Count; i++)
-                {
-                    if(character != characters[i])
-                        if (character.IsBoxColliding(characters[i]))
-                        {
-                            Engine.Debug("ESTOY COLISIONANDO");
-                        }
-                }
-            }
+        //static void Update()
+        //{
+        //    foreach (var character in characters)
+        //    {
+        //        for (int i = 0; i < characters.Count; i++)
+        //        {
+        //            if (character != characters[i])
+        //                if (character.IsBoxColliding(characters[i]))
+        //                {
+        //                    Engine.Debug("ESTOY COLISIONANDO");
+        //                }
+        //        }
+        //    }
+        //}
 
-            player.Update();
-            enemy.Update();
-        }
-
-        static void Draw()
-        {
-            Engine.Clear();
-            player.playerCharacter.Render();
-            enemy.enemyCharacters.Render();
-            for (int i = 0; i < bullets.Count; i++)
-            {
-                if (!bullets[i].Draw)
-                {
-                    bullets.RemoveAt(i);
-                }
-            }
-
-            for (int i = 0; i < bullets.Count; i++)
-            {
-                bullets[i].DrawBullet();
-            }
-
-            Engine.Show();
-        }
+        //public static void Draw()
+        //{
+        //    Engine.Clear();
+        //    player.playerCharacter.Render();
+        //    obstacle.enemyCharacters.Render();
+        //    Engine.Show();
+        //}
 
         static void calcDeltatime()
         {

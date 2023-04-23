@@ -8,13 +8,13 @@ namespace Game
 {
     public class Obstacle : Character
     {
-
+        Random rnd = new Random();
         public static Vector2 pos = new Vector2();
 
-        public Character enemyCharacters = new Character(pos);
-        public Obstacle(Vector2 pos) : base(pos)
+        public Character enemyCharacters = new Character(pos, 0);
+        public Obstacle(Vector2 pos) : base(pos, 200)
         {
-            pos = enemyCharacters.Transform.position;
+            enemyCharacters.transform.position = pos;
         }
 
         private void EnemyMovement()
@@ -29,7 +29,8 @@ namespace Game
 
         public void TopToDownMovement()
         {
-            enemyCharacters.transform.position.y++;
+            transform.position.y += cSpeed * Program.deltaTime;
+            enemyCharacters.transform.position.y = transform.position.y;
         }
 
         public void Reposition(float posX, float posY)
@@ -39,11 +40,12 @@ namespace Game
 
         public override void Update()
         {
-            EnemyMovement();
-
+            EnemyMovement();           
+            transform.position.x = enemyCharacters.transform.position.x;
             if(enemyCharacters.transform.position.y >= 1080)
             {
-                Reposition(960,0);
+                Reposition(rnd.Next(100,1820),0);
+                transform.position.y = 0;
             }
         }
     }

@@ -10,19 +10,19 @@ namespace Game
     {
         public static Vector2 pos = new Vector2();
 
-        public Character playerCharacter = new Character(pos);
-        public Player(Vector2 pos) : base(pos)
+        public Character playerCharacter = new Character(pos, 0);
+        public Player(Vector2 pos) : base (pos, 1000)
         {
-            pos = playerCharacter.Transform.position;
+            playerCharacter.transform.position = pos;
         }
 
         private void Inputs()
         {
-            if (Engine.GetKey(Keys.D) && playerCharacter.transform.position.x <= 1920)
+            if (Engine.GetKey(Keys.D) && playerCharacter.transform.position.x + RealWidth <= 1920)
             {
                 RightMovement();
             }
-            else if (Engine.GetKey(Keys.A) && playerCharacter.transform.position.x >= 0)
+            else if (Engine.GetKey(Keys.A) && playerCharacter.transform.position.x - RealWidth >= 0)
             {
                 LeftMovement();
             }
@@ -30,12 +30,15 @@ namespace Game
 
         public void LeftMovement()
         {
-            playerCharacter.transform.position.x -= speed * Program.deltaTime;
+            transform.position.x -= cSpeed * Program.deltaTime;
+            playerCharacter.transform.position.x = transform.position.x;
+            
         }
 
         public void RightMovement()
         {
-            playerCharacter.transform.position.x += speed * Program.deltaTime;
+            transform.position.x += cSpeed * Program.deltaTime;
+            playerCharacter.transform.position.x = transform.position.x;
         }
 
         public void Start()
