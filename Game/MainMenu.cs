@@ -6,33 +6,32 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class MainMenu
+    public class MainMenu : Screen
     {
+        private Promt title;
         private Promt startPromt;
-        private bool keyWasPressed;
-        public bool KeyWasPressed { get { return keyWasPressed;}}
 
+        public override void Initialize()
+        {
+            CreatePromt();
+        }
         public void CreatePromt()
         {
-            startPromt = new Promt(1, new Vector2(150, 150));
+            title = new Promt(3, new Vector2 (Program.screenWidth/2,100));
+            startPromt = new Promt(1, new Vector2(250, 250));
         }
 
-        public void Render() {
-          
-          
+        public override void Render() {
+
+          title.Render();
           startPromt.Render();
 
         }
 
-        public void Update()
+        public override void Update()
         {
-            
+            title.Update();
             startPromt.Update();
-
-            if (Engine.GetKey(Keys.SPACE))
-            {
-                keyWasPressed = true;
-            }
         }
 
     }

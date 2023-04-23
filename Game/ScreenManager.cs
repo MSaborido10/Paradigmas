@@ -6,33 +6,91 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class ScreenManager
+    public class ScreenManager
     {
+        //private static ScreenManager instance;
+        //public static ScreenManager Instance { get { if (instance == null) { instance = new ScreenManager(); } return instance; } }
+
+
+        //private Menu[] menus = new Menu[3];
+        //private int currentScreen = Program.screen;
+
+        //private Menu menu;
+
+        //private void LoadScreens()
+        //{
+        //    menus[0] = new Menu(1);
+        //    menus[1] = new Menu(2);
+        //    menus[2] = new Menu(3);
+        //}
+
+        //public void Update()
+        //{
+        //    if (currentScreen > 0 && currentScreen !=1)
+        //    {
+        //        menus[currentScreen-1].Update();
+        //    }
+        //    else if (currentScreen == 0)
+        //    {
+        //        menus[currentScreen].Update();
+        //    }
+        //}
+
+
+
+        //public void Render()
+        //{
+        //    if (currentScreen > 0 && currentScreen != 1)
+        //    {
+        //        menus[currentScreen - 1].Render();
+        //    }
+        //    else if (currentScreen == 0)
+        //    {
+        //        menus[currentScreen].Render();
+        //    }
+        //}
+
+
+
+
         private static ScreenManager instance;
         public static ScreenManager Instance { get { if (instance == null) { instance = new ScreenManager(); } return instance; } }
 
 
-        private Menu[] menus = new Menu[3];
-        private int currentScreen = Program.screen;
+        private Screen[] screens = new Screen[4];
+        public int currentScreen;
+        public int currentScreen2;
+        //public int CurrentScreen { get { return currentScreen; } set { currentScreen = value; } }
 
-        private Menu menu;
+        private MainMenu mainMenu;
+        private Level level;
 
         private void LoadScreens()
         {
-            menus[0] = new Menu(1);
-            menus[1] = new Menu(2);
-            menus[2] = new Menu(3);
+            screens[0] = mainMenu;
+            screens[1] = level;
+        }
+
+        public void Initialize()
+        {
+            currentScreen = 0;
+            mainMenu = new MainMenu();
+            mainMenu.Initialize();
+            level = new Level();
+
+            LoadScreens();
         }
 
         public void Update()
         {
-            if (currentScreen > 0 && currentScreen !=1)
+            if (currentScreen2 != currentScreen)
             {
-                menus[currentScreen-1].Update();
+                screens[currentScreen].Initialize();
+                currentScreen2 = currentScreen;
             }
-            else if (currentScreen == 0)
+            else if (currentScreen2 == currentScreen)
             {
-                menus[currentScreen].Update();
+                screens[currentScreen].Update();
             }
         }
 
@@ -40,57 +98,20 @@ namespace Game
 
         public void Render()
         {
-            if (currentScreen > 0 && currentScreen != 1)
+            if (currentScreen2 == currentScreen)
             {
-                menus[currentScreen - 1].Render();
-            }
-            else if (currentScreen == 0)
-            {
-                menus[currentScreen].Render();
+                screens[currentScreen].Render();
             }
         }
 
-
-
-
-        //private static ScreenManager instance;
-        //public static ScreenManager Instance { get {if (instance == null) { instance = new ScreenManager();} return instance; } }
-
-
-        //private Screen[] screens = new Screen[4];
-        //private int currentScreen = 0;        
-        //public int CurrentScreen {get{return CurrentScreen;} set{ currentScreen = CurrentScreen;}}
-
-        //private MainMenu mainMenu;
-
-        //private void LoadScreens()
-        //{
-        //    screens[0] = mainMenu;
-        //}
-
-        //public void Initialize()
-        //{
-        //    mainMenu = new MainMenu();
-        //    mainMenu.CreatePromt();
-        //}
-
-        //public void Update() 
-        //{
-        //   screens[currentScreen].Update();
-
-        //   if (mainMenu.KeyWasPressed == true)
-        //   {
-        //    Engine.Debug("Change screen");
-        //   }
-
-        // }
-
-
-
-        //public void Render()
-        //{
-        //    screens[currentScreen].Render();
-        //}
+        public void GameOver(bool win)
+        {
+            if (win)
+            {
+                currentScreen = 2;
+            }
+            else {currentScreen = 3;}
+        }
 
     }
 }

@@ -6,6 +6,8 @@ namespace Game
 {
     public class Program
     {
+        public static int screenWidth = 1920;
+        public static int screenHeight = 1080;
         //variables deltatime
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
@@ -21,7 +23,8 @@ namespace Game
         static Character ship;
         static Character pp;
 
-        static MainMenu mainMenu;
+        //static MainMenu mainMenu;
+
 
         static List<Bullet> bullets = new List<Bullet>();
 
@@ -32,19 +35,20 @@ namespace Game
 
         static void Main(string[] args)
         {
-            Engine.Initialize();
+            Engine.Initialize("Pruebas", screenWidth, screenHeight);
 
-            pp = new Character(new Vector2(100,100));
-            ship = new Character(new Vector2(150,100));
+            //pp = new Character(new Vector2(100,100));
+            //ship = new Character(new Vector2(150,100));
 
-            mainMenu = new MainMenu();
-            mainMenu.CreatePromt();
+            //mainMenu = new MainMenu();
+            //mainMenu.CreatePromt();
+            ScreenManager.Instance.Initialize();
 
             idle = CreateAnimation();
             currentAnimation = idle;
 
-            characters.Add(pp);
-            characters.Add(ship);
+            //characters.Add(pp);
+            //characters.Add(ship);
 
             SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
 
@@ -59,26 +63,28 @@ namespace Game
 
         static void Update()
         {
-            switch (screen) 
-            {
-                case 0:
-                    mainMenu.Update();
-                    break;
-                case 1:
-                    //level Update
-                    break;
-                case 2:
-                    //victory screen Update
-                    break;
-                case 3:
-                    //defeat screen Update
-                    break;
-            }
+            ScreenManager.Instance.Update();
+            Engine.Debug(ScreenManager.Instance.currentScreen);
+            //switch (screen) 
+            //{
+            //    case 0:
+            //        mainMenu.Update();
+            //        break;
+            //    case 1:
+            //        //level Update
+            //        break;
+            //    case 2:
+            //        //victory screen Update
+            //        break;
+            //    case 3:
+            //        //defeat screen Update
+            //        break;
+            //}
 
-            if (Engine.GetKey(Keys.SPACE))
-            {
-               pp.AddMove(new Vector2(10 * deltaTime, 10 * deltaTime));
-            }
+            //if (Engine.GetKey(Keys.SPACE))
+            //{
+            //   pp.AddMove(new Vector2(10 * deltaTime, 10 * deltaTime));
+            //}
 
             for (int i = 0; i < bullets.Count; i++)
             {
@@ -99,8 +105,8 @@ namespace Game
             }
 
             //currentAnimation.Update();
-            ship.Update();
-            pp.Update();
+            //ship.Update();
+            //pp.Update();
 
             //startPromt.Update();
         }
@@ -109,25 +115,25 @@ namespace Game
         {
             Engine.Clear();
 
-           
-            ship.Render();
-            pp.Render();
+            ScreenManager.Instance.Render();
+            //switch (screen)
+            //{
+            //    case 0:
+            //        mainMenu.Render();
+            //        break;
+            //    case 1:
+            //        //level Update
+            //        break;
+            //    case 2:
+            //        //victory screen Update
+            //        break;
+            //    case 3:
+            //        //defeat screen Update
+            //        break;
+            //}
 
-            //startPromt.Render();
-            mainMenu.Render();
-
-            for (int i = 0; i < bullets.Count; i++)
-            {
-                if (!bullets[i].Draw)
-                {
-                    bullets.RemoveAt(i);
-                }
-            }
-
-            for (int i = 0; i < bullets.Count; i++)
-            {
-                bullets[i].DrawBullet();
-            }
+            //ship.Render();
+            //pp.Render();
 
             Engine.Show();
         }

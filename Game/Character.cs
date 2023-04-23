@@ -6,68 +6,49 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Character
+    public class Character : GameObject
     {
-        private float life = 100f;
-
-        private Transform transform;
-
-        private float speed = 0;
+        protected float cSpeed = 100f;
 
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
-        public Transform Transform => transform;
-        
         Animation currentAnimation = null;
         Animation idle;
 
-        //List<Animation> animations = new List<Animation>();
-
-        public Character(Vector2 initialPos)
+        public Character(Vector2 initialPos, float speed)
         {
-            idle = CreateAnimation("Idle","",4,2);
-            transform = new Transform(initialPos,0,new Vector2(1,1));
+            idle = CreateAnimation("Idle", "", 4, 2);
+            transform = new Transform(initialPos, 0, new Vector2(1, 1));
 
-            currentAnimation = idle;// GetAnimation("Idle");
+            cSpeed = speed;
+            currentAnimation = idle;
             currentAnimation.Reset();
         }
 
-        public void Update()
+        public void Start()
+        {
+
+        }
+
+        public override void Update()
         {
             currentAnimation.Update();
         }
 
-        public void Render()
+        public override void Render()
         {
-            Engine.Draw(currentAnimation.CurrentFrame,transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
+            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }
 
-        public void DamageLife(int damage)
-        {
-            life -= damage;
-        }
 
-        public void Kill()
+
+        /*public void Kill()
         {
 
-        }
-
-      /*  private Animation GetAnimation(string id)
-        {
-            for (int i = 0; i < animations.Count; i++)
-            {
-                if (animations[i].Id == id)
-                {
-                    return animations[i];
-                }
-            }
-
-            Engine.Debug($"No se encontró la animación con el id: {id}");
-            return null;
         }*/
 
-        private Animation CreateAnimation(string p_animationID, string p_path,int p_texturesAmount,float p_animationSpeed)
+        private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed)
         {
             // Idle Animation
             List<Texture> animationFrames = new List<Texture>();
@@ -100,16 +81,16 @@ namespace Game
             return animations;
         }
 
-        
+
         public bool IsBoxColliding(Character p_objB)
         {
             float distanceX = Math.Abs(transform.position.x - p_objB.transform.position.x);
             float distanceY = Math.Abs(transform.position.y - p_objB.transform.position.y);
 
-            float sumHalfWidths = RealWidth /2 + p_objB.RealWidth /2;
-            float sumHalfHeights = RealHeight /2 + p_objB.RealHeight/2;
+            float sumHalfWidths = RealWidth / 2 + p_objB.RealWidth / 2;
+            float sumHalfHeights = RealHeight / 2 + p_objB.RealHeight / 2;
 
-            if(distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
+            if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
             {
                 return true;
             }
@@ -117,10 +98,5 @@ namespace Game
         }
 
 
-        public void AddMove(Vector2 pos)
-        {
-            transform.position.x += pos.x;
-            transform.position.y += pos.y;
-        }
     }
 }
