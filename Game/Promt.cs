@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Promt
+    public class Promt : GameObject
     {
-        private Transform transform;
-
         private float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         private float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-
-        public Transform Transform => transform;
 
         private int animationID;
 
@@ -78,12 +74,21 @@ namespace Game
             
         }
 
-        public void Update()
+        public override void Update()
         {
             currentAnimation.Update();
+
+            if (Engine.GetKey(Keys.SPACE))
+            {
+                int screen = Program.screen;
+                if (screen == 0) {screen = 1;}
+                else if (screen > 1) {screen = 0;}
+                Program.screen = screen;
+                Engine.Debug("Space Pressed");
+            }
         }
 
-        public void Render()
+        public override void Render()
         {
             Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }

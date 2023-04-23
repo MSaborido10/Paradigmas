@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class GameObject
+    public class GameObject
     {
+        protected Transform transform;
+        public Transform Transform => transform;
+        public virtual void Update() { }
+        public virtual void Render() { }
     }
 }
