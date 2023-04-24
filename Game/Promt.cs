@@ -11,8 +11,6 @@ namespace Game
         private float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         private float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
-        private int animationID;
-
         private List<Texture> frames = new List<Texture>();
 
         Animation currentAnimation = null;
@@ -25,7 +23,6 @@ namespace Game
         public Promt(int animation_number, Vector2 initialPos)
         {
             transform = new Transform(initialPos, 0, new Vector2(1, 1));
-
             switch (animation_number)
             {
                 case 1:
@@ -80,12 +77,12 @@ namespace Game
 
             if (Engine.GetKey(Keys.SPACE))
             {
-                if (ScreenManager.Instance.currentScreen == 0) 
+                if (ScreenManager.Instance.currentScreen == 0)
                 {
                     ScreenManager.Instance.currentScreen = 1;
                 }
-                else if (ScreenManager.Instance.currentScreen > 1) 
-                { 
+                else if (ScreenManager.Instance.currentScreen != 0 && ScreenManager.Instance.currentScreen != 1)
+                {
                     ScreenManager.Instance.currentScreen = 0;
                 }
                 Engine.Debug("Space Pressed");

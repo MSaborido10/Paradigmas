@@ -8,9 +8,11 @@ namespace Game
 {
     public class Screen : GameObject
     {
-        private List<GameObject> objectsOnScreen;
+        public List<GameObject> objectsOnScreen;
 
         public virtual void Initialize() { }
-        private void LoadObjectsOnScreen() { }
+
+        public virtual void CreatePromt() { }
+        protected virtual void LoadObjectsOnScreen() { }
     }
 }

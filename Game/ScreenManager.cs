@@ -59,16 +59,20 @@ namespace Game
 
         private Screen[] screens = new Screen[4];
         public int currentScreen;
-        public int currentScreen2;
+        private int currentScreen2;
         //public int CurrentScreen { get { return currentScreen; } set { currentScreen = value; } }
 
         private MainMenu mainMenu;
         private Level level;
+        private WinScreen winScreen;
+        private GameOverScreen gameOverScreen;
 
         private void LoadScreens()
         {
             screens[0] = mainMenu;
             screens[1] = level;
+            screens[2] = winScreen;
+            screens[3] = gameOverScreen;
         }
 
         public void Initialize()
@@ -77,6 +81,8 @@ namespace Game
             mainMenu = new MainMenu();
             mainMenu.Initialize();
             level = new Level();
+            winScreen = new WinScreen();
+            gameOverScreen = new GameOverScreen();
 
             LoadScreens();
         }

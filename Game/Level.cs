@@ -42,14 +42,15 @@ namespace Game
             if (timer >= timeObjective)
             {
                 timer = 0;
-                screenManager.GameOver(true);//Win screen
+                ScreenManager.Instance.GameOver(true);
+                Engine.Debug("You Win!");
             }
         }
 
         private void LoseCondition()
         {
             Console.WriteLine("CondicionDeDerrota");
-            screenManager.GameOver(false);
+            ScreenManager.Instance.GameOver(false);
 
         }
 
