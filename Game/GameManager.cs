@@ -45,8 +45,6 @@ namespace Game
         
         public void SceneChange(int levelIndex)
         {
-            Console.WriteLine(scenes[levelIndex]);
-
             currentScene = scenes[levelIndex];
         }
 

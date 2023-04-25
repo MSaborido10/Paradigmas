@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class Screen
+    public class Screen : GameObject
     {
+        public List<GameObject> objectsOnScreen;
+
+        public virtual void Initialize() { }
+
+        public virtual void CreatePromt() { }
+        protected virtual void LoadObjectsOnScreen() { }
+
     }
 }

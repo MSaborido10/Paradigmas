@@ -76,14 +76,7 @@ namespace Game
 
             if (Engine.GetKey(Keys.SPACE))
             {
-                if (GameManager.Instance.currentScreen == 0)
-                {
-                    GameManager.Instance.currentScreen = 1;
-                }
-                else if (GameManager.Instance.currentScreen != 0 && GameManager.Instance.currentScreen != 1)
-                {
-                    GameManager.Instance.currentScreen = 0;
-                }
+                GameManager.Instance.SceneChange(1);
             }
         }
 
