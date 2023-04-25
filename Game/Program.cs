@@ -64,28 +64,8 @@ namespace Game
         static void Update()
         {
             ScreenManager.Instance.Update();
-            Engine.Debug(ScreenManager.Instance.currentScreen);
-            //switch (screen) 
-            //{
-            //    case 0:
-            //        mainMenu.Update();
-            //        break;
-            //    case 1:
-            //        //level Update
-            //        break;
-            //    case 2:
-            //        //victory screen Update
-            //        break;
-            //    case 3:
-            //        //defeat screen Update
-            //        break;
-            //}
-
-            //if (Engine.GetKey(Keys.SPACE))
-            //{
-            //   pp.AddMove(new Vector2(10 * deltaTime, 10 * deltaTime));
-            //}
-
+            //Engine.Debug(ScreenManager.Instance.currentScreen);
+           
             for (int i = 0; i < bullets.Count; i++)
             {
                 bullets[i].Update();
@@ -103,12 +83,6 @@ namespace Game
                         }
                 }
             }
-
-            //currentAnimation.Update();
-            //ship.Update();
-            //pp.Update();
-
-            //startPromt.Update();
         }
 
         static void Draw()
@@ -116,25 +90,7 @@ namespace Game
             Engine.Clear();
 
             ScreenManager.Instance.Render();
-            //switch (screen)
-            //{
-            //    case 0:
-            //        mainMenu.Render();
-            //        break;
-            //    case 1:
-            //        //level Update
-            //        break;
-            //    case 2:
-            //        //victory screen Update
-            //        break;
-            //    case 3:
-            //        //defeat screen Update
-            //        break;
-            //}
-
-            //ship.Render();
-            //pp.Render();
-
+           
             Engine.Show();
         }
 
@@ -146,10 +102,10 @@ namespace Game
         }
 
 
-        static void Shoot()
-        {
-            bullets.Add(new Bullet(_posX + 230, _posY + 60, _rot));
-        }
+        //static void Shoot()
+        //{
+        //    bullets.Add(new Bullet(_posX + 230, _posY + 60, _rot));
+        //}
 
         private static Animation CreateAnimation()
         {

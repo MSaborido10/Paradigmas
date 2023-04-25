@@ -19,20 +19,31 @@ namespace Game
 
         private float timer = 0;
         private float timeObjective = 15f;
-        private ScreenManager screenManager = new ScreenManager();
+        //private ScreenManager screenManager = new ScreenManager();
+        //private ObstacleManager obstacleManager = new ObstacleManager();
 
         public override void Initialize()
         {
                 player = new Player(new Vector2(960, 540));
-                obstacle = new Obstacle(new Vector2(960, 100));
-                characterCollisions.Add(player);
+            //obstacle = new Obstacle(new Vector2(960, 100));
+            ObstacleManager.Instance.Start();
+             characterCollisions.Add(player);
+            //for (int i =0; i < ObstacleManager.Instance.obstaclesOnScreen.Length; i++)
+            //{
+            //    characterCollisions.Add(ObstacleManager.Instance.obstaclesOnScreen[i]);
+            //}
+            foreach (var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
+            {
                 characterCollisions.Add(obstacle);
+            }
+                //characterCollisions.Add(obstacle);
         }
 
 
         public override void Update()
         {
             LevelConditions();
+            ObstacleManager.Instance.Update();
             LevelEntities();
         }
 
@@ -41,9 +52,9 @@ namespace Game
             timer += Program.deltaTime;
             if (timer >= timeObjective)
             {
-                timer = 0;
                 ScreenManager.Instance.GameOver(true);
                 Engine.Debug("You Win!");
+                timer = 0;
             }
         }
 
@@ -71,10 +82,11 @@ namespace Game
             }
         }
 
+
         private void LevelEntities()//Esto ya se ejecuta en el update
         {
             player.Update();
-            obstacle.Update();
+            //obstacle.Update();
             //Engine.Debug("Level Update done");
         }
 
@@ -87,7 +99,8 @@ namespace Game
         public override void Render()
         {
             player.playerCharacter.Render();
-            obstacle.enemyCharacters.Render();
+            //obstacle.enemyCharacters.Render();
+            ObstacleManager.Instance.Render();
         }
     }
 }

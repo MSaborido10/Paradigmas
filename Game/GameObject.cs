@@ -9,7 +9,6 @@ namespace Game
     public class GameObject
     {
         public Transform transform;
-        public Transform Transform => transform;
         public virtual void Update() { }
         public virtual void Render() { }
     }

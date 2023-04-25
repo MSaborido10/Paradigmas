@@ -46,6 +46,7 @@
     <Compile Include="Level.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Obstacle.cs" />
+    <Compile Include="ObstacleManager.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Promt.cs" />
