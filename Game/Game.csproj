@@ -53,6 +53,7 @@
     <Compile Include="Promt.cs" />
     <Compile Include="ScoreManager.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Screen.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="WinScreen.cs" />
   </ItemGroup>

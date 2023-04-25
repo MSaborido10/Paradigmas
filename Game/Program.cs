@@ -9,8 +9,8 @@ namespace Game
     {
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
-        private static int screenWidth = 1920;
-        private static int screenHeight = 1080;
+        public static int screenWidth = 1920;
+        public static int screenHeight = 1080;
 
 
         static Animation currentAnimation = null;

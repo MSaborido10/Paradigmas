@@ -14,6 +14,5 @@ namespace Game
 
         public virtual void CreatePromt() { }
         protected virtual void LoadObjectsOnScreen() { }
-
     }
 }
