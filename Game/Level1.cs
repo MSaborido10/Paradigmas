@@ -11,7 +11,6 @@ namespace Game
     public class Level1 : IScenes
     {
         private Player player;
-        private Obstacle obstacle;
 
         SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
         //myplayer.PlayLooping();
@@ -23,14 +22,18 @@ namespace Game
         public void Start()
         {
             player = new Player(new Vector2(960, 540));
-            obstacle = new Obstacle(new Vector2(960, 100));
             characterCollisions.Add(player);
-            characterCollisions.Add(obstacle);
+            ObstacleManager.Instance.Start();
+            foreach(var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
+            {
+                characterCollisions.Add(obstacle);
+            }
         }
 
         public void Update()
         {
             LevelConditions();
+            ObstacleManager.Instance.Update();
             LevelEntities();
             Draw();
         }
@@ -47,9 +50,7 @@ namespace Game
 
         private void LoseCondition()
         {            
-            Console.WriteLine("CondicionDeDerrota");
-            GameManager.Instance.LoseCondition();
-            
+            GameManager.Instance.LoseCondition();            
         }
 
         private void CheckCollision()
@@ -72,7 +73,6 @@ namespace Game
         private void LevelEntities()
         {
             player.Update();
-            obstacle.Update();
         }
 
         private void LevelConditions()
@@ -85,7 +85,7 @@ namespace Game
         {
             Engine.Clear();
             player.playerCharacter.Render();
-            obstacle.enemyCharacters.Render();
+            ObstacleManager.Instance.Render();
             Engine.Show();
         }
     }
