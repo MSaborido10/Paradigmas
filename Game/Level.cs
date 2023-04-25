@@ -83,8 +83,6 @@ namespace Game
         private void LevelEntities()//Esto ya se ejecuta en el update
         {
             player.Update();
-            //obstacle.Update();
-            //Engine.Debug("Level Update done");
         }
 
         private void LevelConditions()//Esto ya se ejecuta en el update

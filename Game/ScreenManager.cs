@@ -60,7 +60,6 @@ namespace Game
         private Screen[] screens = new Screen[4];
         public int currentScreen;
         private int currentScreen2;
-        //public int CurrentScreen { get { return currentScreen; } set { currentScreen = value; } }
 
         private MainMenu mainMenu;
         private Level level;
@@ -83,7 +82,6 @@ namespace Game
             level = new Level();
             winScreen = new WinScreen();
             gameOverScreen = new GameOverScreen();
-
             LoadScreens();
         }
 
@@ -91,7 +89,21 @@ namespace Game
         {
             if (currentScreen2 != currentScreen)
             {
-                Initialize();
+                switch (currentScreen)
+                {
+                    case 0:
+                        mainMenu = new MainMenu();
+                        break;
+                    case 1:
+                        level = new Level();
+                        break;
+                    case 2:
+                        winScreen = new WinScreen();
+                        break;
+                    case 3:
+                        gameOverScreen = new GameOverScreen();
+                        break;
+                }
                 screens[currentScreen].Initialize();
                 currentScreen2 = currentScreen;
             }
@@ -111,11 +123,13 @@ namespace Game
 
         public void GameOver(bool win)
         {
-            if (win)
-            {
-                currentScreen = 2;
-            }
-            else {currentScreen = 3;}
+            
+                if (win)
+                {
+                    currentScreen = 2;
+                }
+                else { currentScreen = 3; }
+                        
         }
 
     }
