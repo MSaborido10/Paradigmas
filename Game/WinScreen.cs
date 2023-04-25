@@ -37,7 +37,7 @@ namespace Game
 
         public void Start()
         {
-            
+            Initialize();
         }
     }
 }

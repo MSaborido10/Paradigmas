@@ -30,7 +30,7 @@ namespace Game
         }
         public void Start()
         {
-            
+            Initialize();
         }
 
         public override void Update()

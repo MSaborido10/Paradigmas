@@ -9,10 +9,6 @@ namespace Game
     public class LoseScreen : Screen, IScenes
     {
 
-        public void Start()
-        {
-
-        }
 
         private Promt title;
         private Promt promt;
@@ -20,6 +16,10 @@ namespace Game
         public override void Initialize()
         {
             CreatePromt();
+        }
+        public void Start()
+        {
+            Initialize();
         }
 
         public override void CreatePromt()
