@@ -85,7 +85,6 @@ namespace Game
                 {
                     ScreenManager.Instance.currentScreen = 0;
                 }
-                Engine.Debug("Space Pressed");
             }
         }
 

@@ -24,10 +24,10 @@ namespace Game
 
         public override void Initialize()
         {
-                player = new Player(new Vector2(960, 540));
+            player = new Player(new Vector2(960, 540));
             //obstacle = new Obstacle(new Vector2(960, 100));
             ObstacleManager.Instance.Start();
-             characterCollisions.Add(player);
+            //characterCollisions.Add(player);
             //for (int i =0; i < ObstacleManager.Instance.obstaclesOnScreen.Length; i++)
             //{
             //    characterCollisions.Add(ObstacleManager.Instance.obstaclesOnScreen[i]);
@@ -53,16 +53,13 @@ namespace Game
             if (timer >= timeObjective)
             {
                 ScreenManager.Instance.GameOver(true);
-                Engine.Debug("You Win!");
                 timer = 0;
             }
         }
 
         private void LoseCondition()
         {
-            Console.WriteLine("CondicionDeDerrota");
             ScreenManager.Instance.GameOver(false);
-
         }
 
         private void CheckCollision()
@@ -73,7 +70,7 @@ namespace Game
                 {
                     if (character != characterCollisions[i])
                     {
-                        if (character.IsBoxColliding(characterCollisions[i]))
+                        if (character.IsBoxColliding(player))
                         {
                             LoseCondition();
                         }

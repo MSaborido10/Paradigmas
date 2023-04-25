@@ -91,6 +91,7 @@ namespace Game
         {
             if (currentScreen2 != currentScreen)
             {
+                Initialize();
                 screens[currentScreen].Initialize();
                 currentScreen2 = currentScreen;
             }
@@ -99,8 +100,6 @@ namespace Game
                 screens[currentScreen].Update();
             }
         }
-
-
 
         public void Render()
         {
