@@ -27,6 +27,7 @@ namespace Game
         {
             title.Update();
             promt.Update();
+            Render();
         }
 
         public override void Render()

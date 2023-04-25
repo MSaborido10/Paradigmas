@@ -23,11 +23,10 @@ namespace Game
 
         public override void Render()
         {
-
             title.Render();
             startPromt.Render();
-
         }
+
         public void Start()
         {
             Initialize();
@@ -37,6 +36,7 @@ namespace Game
         {
             title.Update();
             startPromt.Update();
+            Render();
         }
     }
 }
