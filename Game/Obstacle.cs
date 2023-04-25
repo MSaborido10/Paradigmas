@@ -22,10 +22,7 @@ namespace Game
             TopToDownMovement();      
         }
 
-        public void Start()
-        {
-
-        }
+        public void Start() { }
 
         public void TopToDownMovement()
         {

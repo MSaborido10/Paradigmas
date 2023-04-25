@@ -9,7 +9,6 @@ namespace Game
     public interface IScenes
     {
         void Start();
-
         void Update();
     }
 }

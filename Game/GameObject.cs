@@ -12,14 +12,8 @@ namespace Game
 
         public Transform Transform => transform;
 
-        public virtual void Update()
-        {
-            
-        }
+        public virtual void Update() { }
 
-        public virtual void Render()
-        {
-
-        }
+        public virtual void Render() { }
     }
 }

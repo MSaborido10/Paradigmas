@@ -9,15 +9,14 @@ namespace Game
     public class LoseScreen : IScenes
     {
 
-        void IScenes.Start()
+        public void Start()
         {
-            
+
         }
 
-
-        void IScenes.Update()
+        public void Update()
         {
-            
+
         }
     }
 }

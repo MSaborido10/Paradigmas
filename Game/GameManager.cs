@@ -9,10 +9,13 @@ namespace Game
     public class GameManager
     {
         public static Level1 level1;
+        public static MainMenu menu1;
+        public static WinScreen winScreen;
+        public static LoseScreen loseScreen;
 
-        private IScenes currentScene;
+        public IScenes[] scenes;
 
-        //private IScenes[] scenes = {}
+        public IScenes currentScene;
 
         private bool isInitialized = false;
 
@@ -31,16 +34,20 @@ namespace Game
 
         public void StartManager()
         {
-            if (!isInitialized)
+            isInitialized = false;
+            if(!isInitialized)
             {
                 currentScene.Start();
                 isInitialized = true;
             }
         }
 
+        
         public void SceneChange(int levelIndex)
         {
+            Console.WriteLine(scenes[levelIndex]);
 
+            currentScene = scenes[levelIndex];
         }
 
         public void UpdateManager()
@@ -50,19 +57,23 @@ namespace Game
 
         public void WinCondition()
         {
-            Console.WriteLine("Ganaste pibe, sos un crack");
+            SceneChange(2);
+            StartManager();
         }
 
         public void LoseCondition()
         {
-            level1 = new Level1();
+            SceneChange(3);
             StartManager();
         }
 
         public void InitializeScene()
         {
+            menu1 = new MainMenu();
             level1 = new Level1();
-            currentScene = level1;
+            winScreen = new WinScreen();
+            loseScreen = new LoseScreen();
+            scenes = new IScenes[] { menu1, level1, winScreen, loseScreen };
         }
     }
 }

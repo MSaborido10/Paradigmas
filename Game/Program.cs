@@ -7,7 +7,6 @@ namespace Game
 {
     public class Program
     {
-        //variables deltatime
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
         private static int screenWidth = 1920;
@@ -23,39 +22,15 @@ namespace Game
         {
             Engine.Initialize("Pruebas", screenWidth, screenHeight);
             GameManager.Instance.InitializeScene();
+            GameManager.Instance.SceneChange(0);
             GameManager.Instance.StartManager();
 
             while (true)
             {
                 calcDeltatime();
                 GameManager.Instance.UpdateManager();
-                //Update();
-                //Draw();
             }
-        }
-
-        //static void Update()
-        //{
-        //    foreach (var character in characters)
-        //    {
-        //        for (int i = 0; i < characters.Count; i++)
-        //        {
-        //            if (character != characters[i])
-        //                if (character.IsBoxColliding(characters[i]))
-        //                {
-        //                    Engine.Debug("ESTOY COLISIONANDO");
-        //                }
-        //        }
-        //    }
-        //}
-
-        //public static void Draw()
-        //{
-        //    Engine.Clear();
-        //    player.playerCharacter.Render();
-        //    obstacle.enemyCharacters.Render();
-        //    Engine.Show();
-        //}
+        }        
 
         static void calcDeltatime()
         {
@@ -63,22 +38,5 @@ namespace Game
             deltaTime = (float)deltaSpan.TotalSeconds;
             lastFrameTime = DateTime.Now;
         }
-
-               
-
-        //private static Animation CreateAnimation()
-        //{
-        //    // Idle Animation
-        //    List<Texture> idleFrames = new List<Texture>();
-
-        //    for (int i = 0; i < 4; i++)
-        //    {
-        //        idleFrames.Add(Engine.GetTexture($"{i}.png"));
-        //    }
-
-        //    Animation idleAnimation = new Animation("Idle", idleFrames, 2, true);
-
-        //    return idleAnimation;
-        //}
     }
 }

@@ -42,12 +42,6 @@ namespace Game
         }
 
 
-
-        /*public void Kill()
-        {
-
-        }*/
-
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed)
         {
             // Idle Animation
