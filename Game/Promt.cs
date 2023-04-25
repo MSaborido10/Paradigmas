@@ -67,10 +67,9 @@ namespace Game
                     currentAnimation = gameoverTitle;
                     break;
             }
-
         }
 
-        public override void Update()
+        public override void UpdateAlt()
         {
             currentAnimation.Update();
 
@@ -84,6 +83,5 @@ namespace Game
         {
             Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }
-
     }
 }

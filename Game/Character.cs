@@ -31,7 +31,7 @@ namespace Game
 
         }
 
-        public override void Update()
+        public override void UpdateAlt()
         {
             currentAnimation.Update();
         }

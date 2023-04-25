@@ -39,7 +39,7 @@ namespace Game
             enemyCharacters.transform.position = new Vector2(posX, posY);
         }
 
-        public override void Update()
+        public override void UpdateAlt()
         {
             EnemyMovement();           
             transform.position.x = enemyCharacters.transform.position.x;

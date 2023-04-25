@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class MainMenu : Screen,IScenes
+    public class MainMenu : Screen, IScenes
     {
         private Promt title;
         private Promt startPromt;
@@ -32,11 +32,16 @@ namespace Game
             Initialize();
         }
 
-        public override void Update()
+        public void Update()
         {
-            title.Update();
-            startPromt.Update();
+            title.UpdateAlt();
+            startPromt.UpdateAlt();
             Render();
+        }
+
+        public override void UpdateAlt()
+        {
+
         }
     }
 }

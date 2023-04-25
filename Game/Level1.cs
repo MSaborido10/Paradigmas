@@ -30,7 +30,7 @@ namespace Game
             }
         }
 
-        public void Update()
+        public void UpdateAlt()
         {
             LevelConditions();
             ObstacleManager.Instance.Update();
