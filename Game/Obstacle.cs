@@ -8,6 +8,10 @@ namespace Game
 {
     public class Obstacle : Character
     {
+        public bool active = false;
+        public bool waitingToSpawn = false;
+        public int obstacleID;
+
         Random rnd = new Random();
         public static Vector2 pos = new Vector2();
 
