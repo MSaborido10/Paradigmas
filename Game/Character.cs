@@ -47,33 +47,15 @@ namespace Game
             // Idle Animation
             List<Texture> animationFrames = new List<Texture>();
 
-            for (int i = 1; i < p_texturesAmount; i++)
-            {
-                animationFrames.Add(Engine.GetTexture($"{p_path}{i}.png"));
-            }
+                animationFrames.Add(Engine.GetTexture($"{p_path}{0}.png"));
+        
 
             Animation animation = new Animation(p_animationID, animationFrames, p_animationSpeed, true);
 
             return animation;
         }
 
-        private List<Animation> GetPlayerAnimations()
-        {
-            List<Animation> animations = new List<Animation>();
-
-            // Idle Animation
-            List<Texture> idleFrames = new List<Texture>();
-
-            for (int i = 0; i < 4; i++)
-            {
-                idleFrames.Add(Engine.GetTexture($"Textures/Animations/Idle/{i}.png"));
-            }
-
-            Animation idleAnimation = new Animation("Idle", idleFrames, 0.2f, true);
-            animations.Add(idleAnimation);
-
-            return animations;
-        }
+      
 
 
         public bool IsBoxColliding(Character p_objB)

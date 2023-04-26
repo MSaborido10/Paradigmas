@@ -10,9 +10,7 @@ namespace Game
     {
         public static Vector2 pos = new Vector2();
 
-        public Character playerCharacter = new Character(pos, 0);
-
-        //private List<Texture> frames = new List<Texture>();
+        private Character playerCharacter = new Character(pos, 0);
 
         private Animation currentAnimation = null;
         private Animation alive;

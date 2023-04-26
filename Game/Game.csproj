@@ -39,7 +39,6 @@
   <ItemGroup>
     <Compile Include="Animation.cs" />
     <Compile Include="Background.cs" />
-    <Compile Include="Bullet.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameObject.cs" />
@@ -58,15 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="0.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Animations\BackgroundAnimations\0.png">
@@ -127,9 +117,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Engine.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="XP.wav">

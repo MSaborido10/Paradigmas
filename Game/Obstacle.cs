@@ -24,10 +24,7 @@ namespace Game
 
         private Animation currentAnimation = null;
         private Animation obstacle01;
-        private Animation obstacle02;
-        private Animation obstacle03;
-        private Animation obstacle04;
-        private Animation obstacle05;
+
 
         
 

@@ -30,23 +30,11 @@ namespace Game
             {
                 for (int i = 0; i < obstaclesOnScreen.Length; i++)
                 {
-                    obstaclesOnScreen[i] = new Obstacle(new Vector2(carril += 200, -100), Program.RandomNumber(false, 0, 4));
+                    obstaclesOnScreen[i] = new Obstacle(new Vector2(carril += 200, -200), Program.RandomNumber(false, 0, 4));
                     obstaclesOnScreen[i].obstacleID = i;
                     carriles[i] = carril;
                 }
             }            
-        }
-
-        private int RandomNumber(bool oneintwo, int min, int max)
-        {
-            int result = 0;
-            Random rnd = new Random();
-            result = rnd.Next(min, max);
-            if (oneintwo)
-            {
-                result = result % 2;
-            }
-            return result;
         }
 
         public void RestartAllObstacles()
@@ -83,14 +71,14 @@ namespace Game
 
         private void ObstacleActivation()
         {
-            int index = RandomNumber(false, 0, deactivatedObstacles.Count);
-            if (RandomNumber(false, 0, 5) > 1 && index < deactivatedObstacles.Count)
+            int index = Program.RandomNumber(false, 0, deactivatedObstacles.Count);
+            if (Program.RandomNumber(false, 0, 5) > 1 && index < deactivatedObstacles.Count)
             {
                 deactivatedObstacles[index].Reposition(carriles[deactivatedObstacles[index].obstacleID], 0);
                 deactivatedObstacles[index].transform.position.y = 0;
                 deactivatedObstacles[index].active = true;
                 deactivatedObstacles[index].waitingToSpawn = false;
-                deactivatedObstacles[index].SwitchAnimation(RandomNumber(false, 0, 4));
+                deactivatedObstacles[index].SwitchAnimation(Program.RandomNumber(false, 0, 4));
                 deactivatedObstacles.Remove(deactivatedObstacles[index]);
             }
         }
