@@ -16,8 +16,6 @@ namespace Game
 
         public static int screen;
 
-        static List<Bullet> bullets = new List<Bullet>();
-
         static Animation currentAnimation = null;
         static Animation idle;
 

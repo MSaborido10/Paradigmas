@@ -26,19 +26,20 @@ namespace Game
             currentAnimation.Reset();
         }
 
-        public void Start()
-        {
-
-        }
-
         public override void Update()
         {
-            currentAnimation.Update();
+            if (currentAnimation != null)
+            {
+                currentAnimation.Update();
+            }
         }
 
         public override void Render()
         {
-            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
+            if (currentAnimation != null)
+            {
+                Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
+            }
         }
 
 
@@ -55,24 +56,6 @@ namespace Game
             Animation animation = new Animation(p_animationID, animationFrames, p_animationSpeed, true);
 
             return animation;
-        }
-
-        private List<Animation> GetPlayerAnimations()
-        {
-            List<Animation> animations = new List<Animation>();
-
-            // Idle Animation
-            List<Texture> idleFrames = new List<Texture>();
-
-            for (int i = 0; i < 4; i++)
-            {
-                idleFrames.Add(Engine.GetTexture($"Textures/Animations/Idle/{i}.png"));
-            }
-
-            Animation idleAnimation = new Animation("Idle", idleFrames, 0.2f, true);
-            animations.Add(idleAnimation);
-
-            return animations;
         }
 
 
