@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Level: Screen
+    public class Level : Screen
     {
         private Player player;
         private Obstacle obstacle;
@@ -19,24 +19,16 @@ namespace Game
 
         private float timer = 0;
         private float timeObjective = 15f;
-        //private ScreenManager screenManager = new ScreenManager();
-        //private ObstacleManager obstacleManager = new ObstacleManager();
 
         public override void Initialize()
         {
             player = new Player(new Vector2(960, 540));
-            //obstacle = new Obstacle(new Vector2(960, 100));
             ObstacleManager.Instance.Start();
-            //characterCollisions.Add(player);
-            //for (int i =0; i < ObstacleManager.Instance.obstaclesOnScreen.Length; i++)
-            //{
-            //    characterCollisions.Add(ObstacleManager.Instance.obstaclesOnScreen[i]);
-            //}
             foreach (var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
             {
                 characterCollisions.Add(obstacle);
             }
-                //characterCollisions.Add(obstacle);
+            LevelReset();
         }
 
 
@@ -57,6 +49,15 @@ namespace Game
             }
         }
 
+
+        private void LevelReset()
+        {
+            foreach (var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
+            {
+                obstacle.Reposition(obstacle.transform.position.x, Program.screenHeight);
+            }
+        }
+
         private void LoseCondition()
         {
             ScreenManager.Instance.GameOver(false);
@@ -64,6 +65,7 @@ namespace Game
 
         private void CheckCollision()
         {
+
             foreach (var character in characterCollisions)
             {
                 for (int i = 0; i < characterCollisions.Count; i++)
@@ -73,6 +75,7 @@ namespace Game
                         if (character.IsBoxColliding(player))
                         {
                             LoseCondition();
+                            
                         }
                     }
                 }

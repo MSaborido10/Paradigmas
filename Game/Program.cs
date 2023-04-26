@@ -8,47 +8,28 @@ namespace Game
     {
         public static int screenWidth = 1920;
         public static int screenHeight = 1080;
+
         //variables deltatime
+
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
 
         public static int screen;
-
-        static float _posY = 305;
-        static float _posX = 305;
-        static float _speed = 100;
-
-        static float _rot = 0;
-
-        static Character ship;
-        static Character pp;
-
-        //static MainMenu mainMenu;
-
 
         static List<Bullet> bullets = new List<Bullet>();
 
         static Animation currentAnimation = null;
         static Animation idle;
 
-        static List<Character> characters = new List<Character>();
 
         static void Main(string[] args)
         {
             Engine.Initialize("Pruebas", screenWidth, screenHeight);
 
-            //pp = new Character(new Vector2(100,100));
-            //ship = new Character(new Vector2(150,100));
-
-            //mainMenu = new MainMenu();
-            //mainMenu.CreatePromt();
             ScreenManager.Instance.Initialize();
 
             idle = CreateAnimation();
             currentAnimation = idle;
-
-            //characters.Add(pp);
-            //characters.Add(ship);
 
             SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
 
@@ -65,24 +46,6 @@ namespace Game
         {
             ScreenManager.Instance.Update();
             //Engine.Debug(ScreenManager.Instance.currentScreen);
-           
-            for (int i = 0; i < bullets.Count; i++)
-            {
-                bullets[i].Update();
-            }
-
-
-            foreach (var character in characters)
-            {
-                for (int i = 0; i < characters.Count; i++)
-                {
-                    if(character != characters[i])
-                        if (character.IsBoxColliding(characters[i]))
-                        {
-                            //Engine.Debug("ESTOY COLISIONANDO");
-                        }
-                }
-            }
         }
 
         static void Draw()
@@ -101,12 +64,6 @@ namespace Game
             lastFrameTime = DateTime.Now;
         }
 
-
-        //static void Shoot()
-        //{
-        //    bullets.Add(new Bullet(_posX + 230, _posY + 60, _rot));
-        //}
-
         private static Animation CreateAnimation()
         {
             // Idle Animation
@@ -121,7 +78,5 @@ namespace Game
 
             return idleAnimation;
         }
-
-
     }
 }

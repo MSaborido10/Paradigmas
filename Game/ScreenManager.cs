@@ -8,51 +8,6 @@ namespace Game
 {
     public class ScreenManager
     {
-        //private static ScreenManager instance;
-        //public static ScreenManager Instance { get { if (instance == null) { instance = new ScreenManager(); } return instance; } }
-
-
-        //private Menu[] menus = new Menu[3];
-        //private int currentScreen = Program.screen;
-
-        //private Menu menu;
-
-        //private void LoadScreens()
-        //{
-        //    menus[0] = new Menu(1);
-        //    menus[1] = new Menu(2);
-        //    menus[2] = new Menu(3);
-        //}
-
-        //public void Update()
-        //{
-        //    if (currentScreen > 0 && currentScreen !=1)
-        //    {
-        //        menus[currentScreen-1].Update();
-        //    }
-        //    else if (currentScreen == 0)
-        //    {
-        //        menus[currentScreen].Update();
-        //    }
-        //}
-
-
-
-        //public void Render()
-        //{
-        //    if (currentScreen > 0 && currentScreen != 1)
-        //    {
-        //        menus[currentScreen - 1].Render();
-        //    }
-        //    else if (currentScreen == 0)
-        //    {
-        //        menus[currentScreen].Render();
-        //    }
-        //}
-
-
-
-
         private static ScreenManager instance;
         public static ScreenManager Instance { get { if (instance == null) { instance = new ScreenManager(); } return instance; } }
 
@@ -89,21 +44,6 @@ namespace Game
         {
             if (currentScreen2 != currentScreen)
             {
-                switch (currentScreen)
-                {
-                    case 0:
-                        mainMenu = new MainMenu();
-                        break;
-                    case 1:
-                        level = new Level();
-                        break;
-                    case 2:
-                        winScreen = new WinScreen();
-                        break;
-                    case 3:
-                        gameOverScreen = new GameOverScreen();
-                        break;
-                }
                 screens[currentScreen].Initialize();
                 currentScreen2 = currentScreen;
             }
@@ -122,14 +62,12 @@ namespace Game
         }
 
         public void GameOver(bool win)
-        {
-            
-                if (win)
-                {
-                    currentScreen = 2;
-                }
-                else { currentScreen = 3; }
-                        
+        {            
+            if (win)
+            {
+                 currentScreen = 2;
+            }
+            else { currentScreen = 3; }
         }
 
     }

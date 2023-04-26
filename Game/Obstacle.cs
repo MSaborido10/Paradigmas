@@ -9,6 +9,7 @@ namespace Game
     public class Obstacle : Character
     {
         public bool active = false;
+        public bool activeCollision = true;
 
         public bool waitingToSpawn = false;
 
@@ -21,6 +22,7 @@ namespace Game
         public Obstacle(Vector2 pos) : base(pos, 200)
         {
             enemyCharacters.transform.position = pos;
+            transform.position = enemyCharacters.transform.position;
         }
 
         private void EnemyMovement()
@@ -41,8 +43,7 @@ namespace Game
 
         public void Reposition(float posX, float posY)
         {
-            enemyCharacters.transform.position = new Vector2(posX, posY);
-            
+            enemyCharacters.transform.position = new Vector2(posX, posY);            
         }
 
         public override void Update()
@@ -53,8 +54,6 @@ namespace Game
                 transform.position.x = enemyCharacters.transform.position.x;
                 if (enemyCharacters.transform.position.y >= Program.screenHeight)
                 {
-                    //Reposition(rnd.Next(100, 1820), 0);
-                    //transform.position.y = 0;
                     active = false;
                 }
             }

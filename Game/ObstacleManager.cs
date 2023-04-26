@@ -31,7 +31,6 @@ namespace Game
                 obstaclesOnScreen[i] = new Obstacle(new Vector2(carril +=200, 0));
                 obstaclesOnScreen[i].obstacleID = i;
                 carriles[i] = carril;
-                
             }
         }
 
@@ -53,9 +52,7 @@ namespace Game
             if (timer >= spawnRate)
             {
                 ObstacleActivation();
-                //Engine.Debug("Time Up");
                 timer = 0;
-                //Engine.Debug("Time reset");
             }
         }
 
@@ -71,22 +68,19 @@ namespace Game
             }
         }
 
+        
+
         private void ObstacleActivation()
         {
-          int index = RandomNumber(false, 0, deactivatedObstacles.Count);
-          if (RandomNumber(false, 0, 5) > 1)
-          {
-
-           deactivatedObstacles[index].Reposition(carriles[deactivatedObstacles[index].obstacleID], 0);
-           deactivatedObstacles[index].transform.position.y = 0;
-           deactivatedObstacles[index].active = true;
-           deactivatedObstacles[index].waitingToSpawn = false;
-           deactivatedObstacles.Remove(deactivatedObstacles[index]);
-           //Engine.Debug("Obstacle" + deactivatedObstacles[index].obstacleID + "Activated");
-          }
-
-
-
+            int index = RandomNumber(false, 0, deactivatedObstacles.Count);
+            if (RandomNumber(false, 0, 5) > 1)
+            {
+                deactivatedObstacles[index].Reposition(carriles[deactivatedObstacles[index].obstacleID], 0);
+                deactivatedObstacles[index].transform.position.y = 0;
+                deactivatedObstacles[index].active = true;
+                deactivatedObstacles[index].waitingToSpawn = false;
+                deactivatedObstacles.Remove(deactivatedObstacles[index]);
+            }
         }
 
         public void Update()
@@ -96,7 +90,6 @@ namespace Game
             {
                 obstaclesOnScreen[i].Update();
             }
-            //ObstacleActivation();
             ActivationTimer();
         }
 
