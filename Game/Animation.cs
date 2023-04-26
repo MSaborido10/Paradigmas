@@ -22,6 +22,11 @@ namespace Game
             this.isLoopEnabled = isLoopEnabled;
         }
 
+        //public void ChangeFrame(int targetFrame)
+        //{
+        //    this.CurrentFrame = targetFrame;
+        //}
+
         public void Reset()
         {
             this.currentFrameIndex = 0;

@@ -13,12 +13,12 @@ namespace Game
 
         private List<Texture> frames = new List<Texture>();
 
-        Animation currentAnimation = null;
-        Animation startPromt;
-        Animation continuePromt;
-        Animation mainTitle;
-        Animation winTitle;
-        Animation gameoverTitle;
+        private Animation currentAnimation = null;
+        private Animation startPromt;
+        private Animation continuePromt;
+        private Animation mainTitle;
+        private Animation winTitle;
+        private Animation gameoverTitle;
 
         public Promt(int animation_number, Vector2 initialPos)
         {

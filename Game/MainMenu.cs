@@ -18,7 +18,7 @@ namespace Game
         public override void CreatePromt()
         {
             title = new Promt(3, new Vector2 (Program.screenWidth/2,100));
-            startPromt = new Promt(1, new Vector2(Program.screenWidth, 500));
+            startPromt = new Promt(1, new Vector2(Program.screenWidth/2, 500));
         }
 
         public override void Render() {

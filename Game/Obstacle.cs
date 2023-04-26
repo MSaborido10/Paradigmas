@@ -19,10 +19,46 @@ namespace Game
         public int obstacleID;
 
         public Character enemyCharacters = new Character(pos, 0);
-        public Obstacle(Vector2 pos) : base(pos, 200)
+
+        public int spriteAmount;
+
+        private Animation currentAnimation = null;
+        private Animation obstacle01;
+        private Animation obstacle02;
+        private Animation obstacle03;
+        private Animation obstacle04;
+        private Animation obstacle05;
+
+        
+
+
+        public Obstacle(Vector2 pos, int sprite) : base(pos, 200)
         {
             enemyCharacters.transform.position = pos;
             transform.position = enemyCharacters.transform.position;
+
+            List<Texture> frames = new List<Texture>();
+            for (int i = 0; i <= 1; i++)
+            {
+                frames.Add(Engine.GetTexture($"Animations/ObstacleAnimations/{sprite}.png"));
+            }
+            // need several animation lists and animations clases.
+            obstacle01 = new Animation("obstacle01", frames, 1, false);
+            currentAnimation = obstacle01;
+
+
+        }
+        
+        public void SwitchAnimation(int sprite)
+        {
+            List<Texture> frames = new List<Texture>();
+            for (int i = 0; i <= 1; i++)
+            {
+                frames.Add(Engine.GetTexture($"Animations/ObstacleAnimations/{sprite}.png"));
+            }
+            // need several animation lists and animations clases.
+            obstacle01 = new Animation("obstacle01", frames, 1, false);
+            currentAnimation = obstacle01;
         }
 
         private void EnemyMovement()
@@ -57,6 +93,11 @@ namespace Game
                     active = false;
                 }
             }
+        }
+
+        public override void Render()
+        {
+            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Game
     public class Level : Screen
     {
         private Player player;
-        private Obstacle obstacle;
+        private Background background;
 
         SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
         //myplayer.PlayLooping();
@@ -22,10 +22,12 @@ namespace Game
 
         public override void Initialize()
         {
-            player = new Player(new Vector2(960, 540));
             ObstacleManager.Instance.Start();
+            player = new Player(new Vector2(960, 540));
+            background = new Background();
             foreach (var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
             {
+                obstacle.Reposition(obstacle.obstacleID, 0);
                 characterCollisions.Add(obstacle);
             }
             LevelReset();
@@ -34,6 +36,7 @@ namespace Game
 
         public override void Update()
         {
+            background.Update();
             LevelConditions();
             ObstacleManager.Instance.Update();
             LevelEntities();
@@ -96,7 +99,8 @@ namespace Game
 
         public override void Render()
         {
-            player.playerCharacter.Render();
+            background.Render();
+            player.Render();
             //obstacle.enemyCharacters.Render();
             ObstacleManager.Instance.Render();
         }

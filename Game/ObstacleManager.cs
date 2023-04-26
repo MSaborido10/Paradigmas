@@ -26,12 +26,15 @@ namespace Game
         public void Start()
         {
             carril = 0;
-            for (int i = 0; i < obstaclesOnScreen.Length; i++)
+            if (obstaclesOnScreen[0] == null)
             {
-                obstaclesOnScreen[i] = new Obstacle(new Vector2(carril +=200, 0));
-                obstaclesOnScreen[i].obstacleID = i;
-                carriles[i] = carril;
-            }
+                for (int i = 0; i < obstaclesOnScreen.Length; i++)
+                {
+                    obstaclesOnScreen[i] = new Obstacle(new Vector2(carril += 200, 0), Program.RandomNumber(false, 0, 4));
+                    obstaclesOnScreen[i].obstacleID = i;
+                    carriles[i] = carril;
+                }
+            }            
         }
 
         private int RandomNumber(bool oneintwo, int min, int max)
@@ -44,6 +47,14 @@ namespace Game
                 result = result % 2;
             }
             return result;
+        }
+
+        public void RestartAllObstacles()
+        {
+            foreach (var obstacle in obstaclesOnScreen)
+            {
+                obstacle.Reposition(carriles[obstacle.obstacleID], 0);
+            }
         }
 
         private void ActivationTimer()
@@ -73,12 +84,13 @@ namespace Game
         private void ObstacleActivation()
         {
             int index = RandomNumber(false, 0, deactivatedObstacles.Count);
-            if (RandomNumber(false, 0, 5) > 1)
+            if (RandomNumber(false, 0, 5) > 1 && index < deactivatedObstacles.Count)
             {
                 deactivatedObstacles[index].Reposition(carriles[deactivatedObstacles[index].obstacleID], 0);
                 deactivatedObstacles[index].transform.position.y = 0;
                 deactivatedObstacles[index].active = true;
                 deactivatedObstacles[index].waitingToSpawn = false;
+                deactivatedObstacles[index].SwitchAnimation(RandomNumber(false, 0, 4));
                 deactivatedObstacles.Remove(deactivatedObstacles[index]);
             }
         }

@@ -62,7 +62,7 @@ namespace Game
         }
 
         public void GameOver(bool win)
-        {            
+        {
             if (win)
             {
                  currentScreen = 2;

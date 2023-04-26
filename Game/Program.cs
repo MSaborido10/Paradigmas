@@ -64,6 +64,18 @@ namespace Game
             lastFrameTime = DateTime.Now;
         }
 
+        public static int RandomNumber(bool oneintwo, int min, int max)
+        {
+            int result = 0;
+            Random rnd = new Random();
+            result = rnd.Next(min, max);
+            if (oneintwo)
+            {
+                result = result % 2;
+            }
+            return result;
+        }
+
         private static Animation CreateAnimation()
         {
             // Idle Animation

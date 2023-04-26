@@ -11,9 +11,23 @@ namespace Game
         public static Vector2 pos = new Vector2();
 
         public Character playerCharacter = new Character(pos, 0);
+
+        //private List<Texture> frames = new List<Texture>();
+
+        private Animation currentAnimation = null;
+        private Animation alive;
         public Player(Vector2 pos) : base(pos, 1000)
         {
             playerCharacter.transform.position = pos;
+
+            List<Texture> frames = new List<Texture>();
+            for (int i = 0; i <= 1; i++)
+            {
+                frames.Add(Engine.GetTexture($"Animations/PlayerAnimations/{i}.png"));
+            }
+
+            alive = new Animation("alive", frames, 1, true);
+            currentAnimation = alive;
         }
 
         private void Inputs()
@@ -48,6 +62,11 @@ namespace Game
         public void Update()
         {
             Inputs();
+        }
+
+        public override void Render()
+        {
+            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }
 
     }
