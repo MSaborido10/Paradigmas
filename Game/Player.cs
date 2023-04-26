@@ -55,11 +55,7 @@ namespace Game
             playerCharacter.transform.position.x = transform.position.x;
         }
 
-        public void Start()
-        {
-
-        }
-        public void Update()
+        public override void Update()
         {
             Inputs();
         }
