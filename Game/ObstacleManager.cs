@@ -30,7 +30,7 @@ namespace Game
             {
                 for (int i = 0; i < obstaclesOnScreen.Length; i++)
                 {
-                    obstaclesOnScreen[i] = new Obstacle(new Vector2(carril += 200, 0), Program.RandomNumber(false, 0, 4));
+                    obstaclesOnScreen[i] = new Obstacle(new Vector2(carril += 200, -100), Program.RandomNumber(false, 0, 4));
                     obstaclesOnScreen[i].obstacleID = i;
                     carriles[i] = carril;
                 }

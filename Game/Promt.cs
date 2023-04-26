@@ -74,7 +74,7 @@ namespace Game
         {
             currentAnimation.Update();
 
-            if (Engine.GetKey(Keys.SPACE))
+            if (Engine.GetKey(Keys.RETURN) || Engine.GetKey(Keys.SPACE)) 
             {
                 if (ScreenManager.Instance.currentScreen == 0)
                 {

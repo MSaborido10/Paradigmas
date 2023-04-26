@@ -18,12 +18,12 @@ namespace Game
         public List<Character> characterCollisions = new List<Character>();
 
         private float timer = 0;
-        private float timeObjective = 15f;
+        private float timeObjective = 40f;
 
         public override void Initialize()
         {
             ObstacleManager.Instance.Start();
-            player = new Player(new Vector2(960, 540));
+            player = new Player(new Vector2(960, 850));
             background = new Background();
             foreach (var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
             {
