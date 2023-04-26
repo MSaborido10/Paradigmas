@@ -11,6 +11,5 @@ namespace Game
         public virtual void Initialize() { }
 
         public virtual void CreatePromt() { }
-        protected virtual void LoadObjectsOnScreen() { }
     }
 }

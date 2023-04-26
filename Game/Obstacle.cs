@@ -9,7 +9,6 @@ namespace Game
     public class Obstacle : Character
     {
         public bool active = false;
-        public bool activeCollision = true;
 
         public bool waitingToSpawn = false;
 
@@ -19,8 +18,6 @@ namespace Game
         public int obstacleID;
 
         public Character enemyCharacters = new Character(pos, 0);
-
-        public int spriteAmount;
 
         private Animation currentAnimation = null;
         private Animation obstacle01;
@@ -63,12 +60,7 @@ namespace Game
             TopToDownMovement();
         }
 
-        public void Start()
-        {
-
-        }
-
-        public void TopToDownMovement()
+        private void TopToDownMovement()
         {
             transform.position.y += cSpeed * Program.deltaTime;
             enemyCharacters.transform.position.y = transform.position.y;
