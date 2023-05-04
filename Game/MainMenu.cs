@@ -34,12 +34,12 @@ namespace Game
 
         public void Update()
         {
-            title.UpdateAlt();
-            startPromt.UpdateAlt();
+            title.SceneUpdate();
+            startPromt.SceneUpdate();
             Render();
         }
 
-        public override void UpdateAlt()
+        public override void SceneUpdate()
         {
 
         }

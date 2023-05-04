@@ -23,16 +23,15 @@ namespace Game
             promt = new Promt(2, new Vector2(Program.screenWidth / 2, 500));
         }
 
-        public override void UpdateAlt()
-        {
-            
+        public override void SceneUpdate()
+        {            
             Render();
         }
 
         public void Update()
         {
-            title.UpdateAlt();
-            promt.UpdateAlt();
+            title.SceneUpdate();
+            promt.SceneUpdate();
             Render();
         }
 

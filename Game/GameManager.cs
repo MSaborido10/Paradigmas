@@ -50,7 +50,7 @@ namespace Game
 
         public void UpdateManager()
         {
-            currentScene.UpdateAlt();
+            currentScene.SceneUpdate();
         }
 
         public void WinCondition()

@@ -307,3 +307,14 @@ D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\MenuPrompt\1.png
 D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\Titles\0.png
 D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\Titles\1.png
 D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\Titles\2.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\Buttons\Quit\0.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\Buttons\Quit\1.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\Buttons\Start\0.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\Buttons\Start\1.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ContinuePromt\0.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ContinuePromt\1.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\MenuPrompt\0.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\MenuPrompt\1.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\Titles\0.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\Titles\1.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\Titles\2.png
