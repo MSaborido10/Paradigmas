@@ -27,10 +27,16 @@ namespace Game
 
             while (true)
             {
-                calcDeltatime();
                 GameManager.Instance.UpdateManager();
+                calcDeltatime();
             }
-        }        
+        }
+
+        static void Render()
+        {
+            Engine.Clear();
+
+        }
 
         static void calcDeltatime()
         {

@@ -32,16 +32,16 @@ namespace Game
             Initialize();
         }
 
-        public void Update()
+        //public void Update()
+        //{
+            
+        //}
+
+        public override void SceneUpdate()
         {
             title.SceneUpdate();
             startPromt.SceneUpdate();
             Render();
-        }
-
-        public override void SceneUpdate()
-        {
-
         }
     }
 }
