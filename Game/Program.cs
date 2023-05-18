@@ -27,7 +27,9 @@ namespace Game
 
             while (true)
             {
+
                 GameManager.Instance.UpdateManager();
+                Render();
                 calcDeltatime();
             }
         }
@@ -35,7 +37,8 @@ namespace Game
         static void Render()
         {
             Engine.Clear();
-
+            GameManager.Instance.currentScene.SceneUpdate();
+            Engine.Show();
         }
 
         static void calcDeltatime()

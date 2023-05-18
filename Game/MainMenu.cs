@@ -32,10 +32,6 @@ namespace Game
             Initialize();
         }
 
-        //public void Update()
-        //{
-            
-        //}
 
         public override void SceneUpdate()
         {

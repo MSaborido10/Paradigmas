@@ -32,6 +32,7 @@ namespace Game
                 obstaclesOnScreen[i].obstacleID = i;
                 carriles[i] = carril;
             }
+            Engine.Debug("Enemies started");
         }
 
         private int RandomNumber(bool oneintwo, int min, int max)

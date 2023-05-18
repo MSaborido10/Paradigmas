@@ -8,6 +8,8 @@ namespace Game
 {
     public class Screen : GameObject
     {
+        public bool started = false;
+
         public List<GameObject> objectsOnScreen;
 
         public virtual void Initialize() { }
