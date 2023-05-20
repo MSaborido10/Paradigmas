@@ -26,23 +26,25 @@ namespace Game
         public void Start()
         {
             carril = 0;
-            if (obstaclesOnScreen[0] == null)
+            for (int i = 0; i < obstaclesOnScreen.Length; i++)
             {
-                for (int i = 0; i < obstaclesOnScreen.Length; i++)
-                {
-                    obstaclesOnScreen[i] = new Obstacle(new Vector2(carril += 200, 0), Program.RandomNumber(false, 0, 4));
-                    obstaclesOnScreen[i].obstacleID = i;
-                    carriles[i] = carril;
-                }
-            }            
+                obstaclesOnScreen[i] = new Obstacle(new Vector2(carril += 200, 0));
+                obstaclesOnScreen[i].obstacleID = i;
+                carriles[i] = carril;
+            }
+            Engine.Debug("Enemies started");
         }
 
-        public void RestartAllObstacles()
+        private int RandomNumber(bool oneintwo, int min, int max)
         {
-            foreach (var obstacle in obstaclesOnScreen)
+            int result = 0;
+            Random rnd = new Random();
+            result = rnd.Next(min, max);
+            if (oneintwo)
             {
-                obstacle.Reposition(carriles[obstacle.obstacleID], 0);
+                result = result % 2;
             }
+            return result;
         }
 
         private void ActivationTimer()
@@ -67,18 +69,15 @@ namespace Game
             }
         }
 
-        
-
         private void ObstacleActivation()
         {
-            int index = Program.RandomNumber(false, 0, deactivatedObstacles.Count);
-            if (Program.RandomNumber(false, 0, 5) > 1 && index < deactivatedObstacles.Count)
+            int index = RandomNumber(false, 0, deactivatedObstacles.Count);
+            if (RandomNumber(false, 0, 5) > 1)
             {
                 deactivatedObstacles[index].Reposition(carriles[deactivatedObstacles[index].obstacleID], 0);
                 deactivatedObstacles[index].transform.position.y = 0;
                 deactivatedObstacles[index].active = true;
                 deactivatedObstacles[index].waitingToSpawn = false;
-                deactivatedObstacles[index].SwitchAnimation(Program.RandomNumber(false, 0, 4));
                 deactivatedObstacles.Remove(deactivatedObstacles[index]);
             }
         }
@@ -88,8 +87,9 @@ namespace Game
             UpdateList();
             for (int i = 0; i < obstaclesOnScreen.Length; i++)
             {
-                obstaclesOnScreen[i].Update();
+                obstaclesOnScreen[i].SceneUpdate();
             }
+            //ObstacleActivation();
             ActivationTimer();
         }
 

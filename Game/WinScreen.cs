@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Game
 {
-    public class WinScreen : Screen
+    public class WinScreen : Screen ,IScenes
     {
         private Promt title;
         private Promt promt;
@@ -22,16 +23,27 @@ namespace Game
             promt = new Promt(2, new Vector2(Program.screenWidth / 2, 500));
         }
 
-        public override void Update()
+        public override void SceneUpdate()
+        {            
+            Render();
+        }
+
+        public void Update()
         {
-            title.Update();
-            promt.Update();
+            title.SceneUpdate();
+            promt.SceneUpdate();
+            Render();
         }
 
         public override void Render()
         {
             title.Render();
             promt.Render();
+        }
+
+        public void Start()
+        {
+            Initialize();
         }
     }
 }

@@ -13,12 +13,12 @@ namespace Game
 
         private List<Texture> frames = new List<Texture>();
 
-        private Animation currentAnimation = null;
-        private Animation startPromt;
-        private Animation continuePromt;
-        private Animation mainTitle;
-        private Animation winTitle;
-        private Animation gameoverTitle;
+        Animation currentAnimation = null;
+        Animation startPromt;
+        Animation continuePromt;
+        Animation mainTitle;
+        Animation winTitle;
+        Animation gameoverTitle;
 
         public Promt(int animation_number, Vector2 initialPos)
         {
@@ -34,7 +34,7 @@ namespace Game
 
                     startPromt = new Animation("startPromt", frames, 1, true);
                     currentAnimation = startPromt;
-                break;
+                    break;
 
                 case 2:
                     List<Texture> frames2 = new List<Texture>();
@@ -44,46 +44,38 @@ namespace Game
                     }
                     continuePromt = new Animation("continuePromt", frames2, 1, true);
                     currentAnimation = continuePromt;
-                break;
+                    break;
 
                 case 3:
                     List<Texture> frames3 = new List<Texture>();
                     frames3.Add(Engine.GetTexture($"Animations/Titles/{0}.png"));
                     mainTitle = new Animation("mainTitle", frames3, 2, false);
                     currentAnimation = mainTitle;
-                break;
+                    break;
 
                 case 4:
                     List<Texture> frames4 = new List<Texture>();
                     frames4.Add(Engine.GetTexture($"Animations/Titles/{1}.png"));
                     winTitle = new Animation("winTitle", frames4, 2, false);
                     currentAnimation = winTitle;
-                break;
+                    break;
 
                 case 5:
                     List<Texture> frames5 = new List<Texture>();
                     frames5.Add(Engine.GetTexture($"Animations/Titles/{2}.png"));
                     gameoverTitle = new Animation("gameoverTitle", frames5, 2, false);
                     currentAnimation = gameoverTitle;
-                break;
+                    break;
             }
-            
         }
 
-        public override void Update()
+        public override void SceneUpdate()
         {
             currentAnimation.Update();
 
             if (Engine.GetKey(Keys.SPACE))
             {
-                if (ScreenManager.Instance.currentScreen == 0)
-                {
-                    ScreenManager.Instance.currentScreen = 1;
-                }
-                else if (ScreenManager.Instance.currentScreen != 0 && ScreenManager.Instance.currentScreen != 1)
-                {
-                    ScreenManager.Instance.currentScreen = 0;
-                }
+                GameManager.Instance.SceneChange(1);
             }
         }
 
@@ -91,6 +83,5 @@ namespace Game
         {
             Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }
-
     }
 }
