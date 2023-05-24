@@ -31,7 +31,7 @@ namespace Game
 
         }
 
-        public override void SceneUpdate()
+        public override void Update()
         {
             currentAnimation.Update();
         }

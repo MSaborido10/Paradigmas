@@ -6,37 +6,32 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class MainMenu : Screen, IScenes
+    public class MainMenu : IScenes
     {
         private Promt title;
         private Promt startPromt;
 
-        public override void Initialize()
+        public void Initialize()
         {
             CreatePromt();
         }
-        public override void CreatePromt()
+        public void CreatePromt()
         {
             title = new Promt(3, new Vector2(Program.screenWidth / 2, 100));
             startPromt = new Promt(1, new Vector2(Program.screenWidth, 500));
         }
 
-        public override void Render()
+        public  void Render()
         {
             title.Render();
             startPromt.Render();
         }
 
-        public void Start()
-        {
-            Initialize();
-        }
 
-
-        public override void SceneUpdate()
+        public void Update()
         {
-            title.SceneUpdate();
-            startPromt.SceneUpdate();
+            title.Update();
+            startPromt.Update();
             Render();
         }
     }

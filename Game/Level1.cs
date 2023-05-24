@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Game
 {
     public class Level1 : IScenes
-    {
+    {        
         private Player player;
 
         SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
@@ -19,7 +19,7 @@ namespace Game
         private float timer = 0;
         private float timeObjective = 15f;
 
-        public void Start()
+        public void Initialize()
         {
             player = new Player(new Vector2(960, 540));
             characterCollisions.Add(player);
@@ -28,14 +28,15 @@ namespace Game
             {
                 characterCollisions.Add(obstacle);
             }
+           
         }
 
-        public void SceneUpdate()
+        public void Update()
         {
             LevelConditions();
             ObstacleManager.Instance.Update();
             LevelEntities();
-            Draw();
+            Render();
         }
 
         private void WinCondition()
@@ -81,7 +82,7 @@ namespace Game
             CheckCollision();
         }
 
-        private void Draw()
+        public void Render()
         {
             Engine.Clear();
             player.playerCharacter.Render();

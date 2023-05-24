@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class GameObject
+    public abstract class GameObject : IUpdateAndRender
     {
         public Transform transform;
 
-        public Transform Transform => transform;
-
-        public virtual void SceneUpdate() { }
+        public virtual void Update() { }
 
         public virtual void Render() { }
     }

@@ -87,9 +87,8 @@ namespace Game
             UpdateList();
             for (int i = 0; i < obstaclesOnScreen.Length; i++)
             {
-                obstaclesOnScreen[i].SceneUpdate();
+                obstaclesOnScreen[i].Update();
             }
-            //ObstacleActivation();
             ActivationTimer();
         }
 

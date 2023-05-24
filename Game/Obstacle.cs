@@ -26,8 +26,6 @@ namespace Game
             TopToDownMovement();      
         }
 
-        public void Start() { }
-
         public void TopToDownMovement()
         {
             transform.position.y += cSpeed * Program.deltaTime;
@@ -39,7 +37,7 @@ namespace Game
             enemyCharacters.transform.position = new Vector2(posX, posY);
         }
 
-        public override void SceneUpdate()
+        public override void Update()
         {
             EnemyMovement();           
             transform.position.x = enemyCharacters.transform.position.x;

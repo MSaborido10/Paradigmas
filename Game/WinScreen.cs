@@ -7,43 +7,33 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class WinScreen : Screen ,IScenes
+    public class WinScreen : IScenes
     {
         private Promt title;
         private Promt promt;
 
-        public override void Initialize()
+        public void Initialize()
         {
             CreatePromt();
         }
 
-        public override void CreatePromt()
+        public void CreatePromt()
         {
             title = new Promt(4, new Vector2(Program.screenWidth / 2, 100));
             promt = new Promt(2, new Vector2(Program.screenWidth / 2, 500));
         }
 
-        public override void SceneUpdate()
-        {            
-            Render();
-        }
-
         public void Update()
         {
-            title.SceneUpdate();
-            promt.SceneUpdate();
-            Render();
+            title.Update();
+            promt.Update();
+
         }
 
-        public override void Render()
+        public void Render()
         {
             title.Render();
             promt.Render();
-        }
-
-        public void Start()
-        {
-            Initialize();
         }
     }
 }
