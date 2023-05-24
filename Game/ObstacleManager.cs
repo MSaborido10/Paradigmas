@@ -28,7 +28,9 @@ namespace Game
             carril = 0;
             for (int i = 0; i < obstaclesOnScreen.Length; i++)
             {
-                obstaclesOnScreen[i] = new Obstacle(new Vector2(carril += 200, 0));
+                Console.WriteLine(obstaclesOnScreen[i]);
+                Obstacle obstacle = new Obstacle(new Vector2(carril += 200, 0));
+                obstaclesOnScreen[i] = obstacle;
                 obstaclesOnScreen[i].obstacleID = i;
                 carriles[i] = carril;
             }
@@ -67,6 +69,15 @@ namespace Game
                     obstacle.waitingToSpawn = true;
                 }
             }
+            /*for (int i  = 0; i < obstaclesOnScreen.Length; i++)
+            {
+                Console.WriteLine(obstaclesOnScreen[i]);
+                if (obstaclesOnScreen[i].active == false && obstaclesOnScreen[i].waitingToSpawn == false)
+                {
+                    deactivatedObstacles.Add(obstaclesOnScreen[i]);
+                    obstaclesOnScreen[i].waitingToSpawn = true;
+                }
+            }*/
         }
 
         private void ObstacleActivation()

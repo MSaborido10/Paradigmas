@@ -18,22 +18,23 @@ namespace Game
 
         private float timer = 0;
         private float timeObjective = 15f;
+        private bool hasLost=false;
 
         public void Start()
         {
-            player = new Player(new Vector2(960, 540));
-            characterCollisions.Add(player);
             ObstacleManager.Instance.Start();
             foreach(var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
             {
                 characterCollisions.Add(obstacle);
             }
+            player = new Player(new Vector2(960, 540));
+            characterCollisions.Add(player);
         }
 
         public void SceneUpdate()
         {
-            LevelConditions();
             ObstacleManager.Instance.Update();
+            LevelConditions();
             LevelEntities();
             Draw();
         }
@@ -50,7 +51,11 @@ namespace Game
 
         private void LoseCondition()
         {            
-            GameManager.Instance.LoseCondition();            
+            if(hasLost) 
+            {
+                GameManager.Instance.LoseCondition();
+                hasLost = false;
+            }
         }
 
         private void CheckCollision()
@@ -63,7 +68,9 @@ namespace Game
                     {
                         if (character.IsBoxColliding(characterCollisions[i]))
                         {
-                            LoseCondition();
+                            Console.WriteLine("choca");
+                            hasLost = true;
+
                         }
                     }                        
                 }
@@ -78,6 +85,7 @@ namespace Game
         private void LevelConditions()
         {
             WinCondition();
+            LoseCondition();
             CheckCollision();
         }
 

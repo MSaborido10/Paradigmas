@@ -45,7 +45,13 @@ namespace Game
         
         public void SceneChange(int levelIndex)
         {
-            currentScene = scenes[levelIndex];
+            if(currentScene != scenes[levelIndex])
+            {
+                currentScene = scenes[levelIndex];
+                StartManager();
+                //Console.WriteLine(currentScene);
+            }
+
         }
 
         public void UpdateManager()
@@ -56,13 +62,11 @@ namespace Game
         public void WinCondition()
         {
             SceneChange(2);
-            StartManager();
         }
 
         public void LoseCondition()
         {
             SceneChange(3);
-            StartManager();
         }
 
         public void InitializeScene()

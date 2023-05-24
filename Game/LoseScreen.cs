@@ -8,8 +8,6 @@ namespace Game
 {
     public class LoseScreen : Screen, IScenes
     {
-
-
         private Promt title;
         private Promt promt;
 
