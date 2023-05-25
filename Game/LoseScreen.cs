@@ -32,17 +32,16 @@ namespace Game
             promt.SceneUpdate();
         }
 
-        public void Update()
-        {
-            title.Render();
-            promt.Render();
-            Render();
+        //public void Update()
+        //{
+            
 
-        }
+        //}
 
         public override void Render()
         {
-
+            title.Render();
+            promt.Render();
         }
     }
 }

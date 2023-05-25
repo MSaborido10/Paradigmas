@@ -32,15 +32,7 @@ namespace Game
             }
         }
 
-        public void StartManager()
-        {
-            isInitialized = false;
-            if(!isInitialized)
-            {
-                currentScene.Start();
-                isInitialized = true;
-            }
-        }
+  
 
         
         public void SceneChange(int levelIndex)
@@ -48,10 +40,9 @@ namespace Game
             if(currentScene != scenes[levelIndex])
             {
                 currentScene = scenes[levelIndex];
-                StartManager();
-                //Console.WriteLine(currentScene);
             }
 
+            currentScene.Start();
         }
 
         public void UpdateManager()

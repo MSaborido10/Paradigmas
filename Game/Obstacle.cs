@@ -13,12 +13,13 @@ namespace Game
         public int obstacleID;
 
         Random rnd = new Random();
-        public static Vector2 pos = new Vector2();
+        public static Vector2 startPos = new Vector2();
 
-        public Character enemyCharacters = new Character(pos, 0);
+       
         public Obstacle(Vector2 pos) : base(pos, 200)
         {
-            enemyCharacters.transform.position = pos;
+            transform.position = pos;
+            startPos = pos;
         }
 
         private void EnemyMovement()
@@ -31,19 +32,22 @@ namespace Game
         public void TopToDownMovement()
         {
             transform.position.y += cSpeed * Program.deltaTime;
-            enemyCharacters.transform.position.y = transform.position.y;
         }
 
         public void Reposition(float posX, float posY)
         {
-            enemyCharacters.transform.position = new Vector2(posX, posY);
+            transform.position = new Vector2(posX, posY);
+        }
+
+        public void Reset()
+        {
+            transform.position = startPos;
         }
 
         public override void SceneUpdate()
         {
             EnemyMovement();           
-            transform.position.x = enemyCharacters.transform.position.x;
-            if(enemyCharacters.transform.position.y >= 1080)
+            if(transform.position.y >= 1080)
             {
                 Reposition(rnd.Next(100,1820),0);
                 transform.position.y = 0;

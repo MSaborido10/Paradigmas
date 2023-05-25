@@ -23,12 +23,13 @@ namespace Game
         public void Start()
         {
             ObstacleManager.Instance.Start();
+            characterCollisions.Clear();
             foreach(var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
             {
                 characterCollisions.Add(obstacle);
             }
             player = new Player(new Vector2(960, 540));
-            characterCollisions.Add(player);
+           
         }
 
         public void SceneUpdate()
@@ -60,19 +61,12 @@ namespace Game
 
         private void CheckCollision()
         {            
-            foreach (var character in characterCollisions)
+            foreach (var obstacle in characterCollisions)
             {
-                for (int i = 0; i < characterCollisions.Count; i++)
+                if (player.IsBoxColliding(obstacle))
                 {
-                    if (character != characterCollisions[i])
-                    {
-                        if (character.IsBoxColliding(characterCollisions[i]))
-                        {
-                            Console.WriteLine("choca");
-                            hasLost = true;
-
-                        }
-                    }                        
+                    Console.WriteLine("choca");
+                    hasLost = true;
                 }
             }
         }
