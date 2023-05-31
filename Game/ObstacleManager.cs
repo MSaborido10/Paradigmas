@@ -18,11 +18,8 @@ namespace Game
         //private int maxObstacles = 5;
 
         private int[] carriles = new int[7];
-
         private int carril = 0;
-
         private float timer = 0;
-
         private float spawnRate = 1f;
 
         public void Start()

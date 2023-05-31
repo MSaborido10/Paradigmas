@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Obstacle : Character
+    public class Obstacle : Character, IObstacles
     {
         public bool active = false;
         public bool waitingToSpawn = false;
@@ -52,6 +52,11 @@ namespace Game
                 Reposition(rnd.Next(100,1820),0);
                 transform.position.y = 0;
             }
+        }
+
+        public void CreateObstacle()
+        {
+            
         }
     }
 }
