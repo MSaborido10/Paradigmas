@@ -6,31 +6,39 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class LoseScreen : IScenes
+    public class LoseScreen : Screen, IScenes
     {
-
-
         private Promt title;
         private Promt promt;
 
-        public void Initialize()
+        public override void Initialize()
         {
             CreatePromt();
         }
+        public void Start()
+        {
+            Initialize();
+        }
 
-        public void CreatePromt()
+        public override void CreatePromt()
         {
             title = new Promt(5, new Vector2(Program.screenWidth / 2, 100));
             promt = new Promt(2, new Vector2(Program.screenWidth / 2, 500));
         }
 
-        public void Update()
+        public override void SceneUpdate()
         {
-            title.Update();
-            promt.Update();
+            title.SceneUpdate();
+            promt.SceneUpdate();
         }
 
-        public void Render()
+        //public void Update()
+        //{
+            
+
+        //}
+
+        public override void Render()
         {
             title.Render();
             promt.Render();

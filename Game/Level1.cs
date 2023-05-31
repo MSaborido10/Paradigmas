@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Game
 {
     public class Level1 : IScenes
-    {        
+    {
         private Player player;
 
         SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
@@ -18,25 +18,26 @@ namespace Game
 
         private float timer = 0;
         private float timeObjective = 15f;
+        private bool hasLost=false;
 
-        public void Initialize()
+        public void Start()
         {
-            player = new Player(new Vector2(960, 540));
-            characterCollisions.Add(player);
             ObstacleManager.Instance.Start();
+            characterCollisions.Clear();
             foreach(var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
             {
                 characterCollisions.Add(obstacle);
             }
+            player = new Player(new Vector2(960, 540));
            
         }
 
-        public void Update()
+        public void SceneUpdate()
         {
-            LevelConditions();
             ObstacleManager.Instance.Update();
+            LevelConditions();
             LevelEntities();
-            Render();
+            Draw();
         }
 
         private void WinCondition()
@@ -51,22 +52,21 @@ namespace Game
 
         private void LoseCondition()
         {            
-            GameManager.Instance.LoseCondition();            
+            if(hasLost) 
+            {
+                GameManager.Instance.LoseCondition();
+                hasLost = false;
+            }
         }
 
         private void CheckCollision()
         {            
-            foreach (var character in characterCollisions)
+            foreach (var obstacle in characterCollisions)
             {
-                for (int i = 0; i < characterCollisions.Count; i++)
+                if (player.IsBoxColliding(obstacle))
                 {
-                    if (character != characterCollisions[i])
-                    {
-                        if (character.IsBoxColliding(characterCollisions[i]))
-                        {
-                            LoseCondition();
-                        }
-                    }                        
+                    Console.WriteLine("choca");
+                    hasLost = true;
                 }
             }
         }
@@ -79,10 +79,11 @@ namespace Game
         private void LevelConditions()
         {
             WinCondition();
+            LoseCondition();
             CheckCollision();
         }
 
-        public void Render()
+        private void Draw()
         {
             Engine.Clear();
             player.playerCharacter.Render();

@@ -11,11 +11,13 @@ namespace Game
         private static ObstacleManager instance;
         public static ObstacleManager Instance { get { if (instance == null) { instance = new ObstacleManager(); } return instance; } }
 
-        public Obstacle[] obstaclesOnScreen = new Obstacle[5];
+        public Obstacle[] obstaclesOnScreen;
 
         private List<Obstacle> deactivatedObstacles = new List<Obstacle>();
 
-        private int[] carriles = new int[5];
+        //private int maxObstacles = 5;
+
+        private int[] carriles = new int[7];
 
         private int carril = 0;
 
@@ -26,13 +28,30 @@ namespace Game
         public void Start()
         {
             carril = 0;
-            for (int i = 0; i < obstaclesOnScreen.Length; i++)
+
+            if (obstaclesOnScreen != null && obstaclesOnScreen.Length <= 7)
             {
-                obstaclesOnScreen[i] = new Obstacle(new Vector2(carril += 200, 0));
-                obstaclesOnScreen[i].obstacleID = i;
-                carriles[i] = carril;
+                for (int i = 0; i < obstaclesOnScreen.Length; i++)
+                {
+                    Console.WriteLine(obstaclesOnScreen[i]);
+                 
+                    obstaclesOnScreen[i].Reset();
+                }
+                Engine.Debug("Enemies started");
             }
-            Engine.Debug("Enemies started");
+            else
+            {
+                obstaclesOnScreen = new Obstacle[7];
+                for (int i = 0; i < obstaclesOnScreen.Length; i++)
+                {
+                    Console.WriteLine(obstaclesOnScreen[i]);
+                    Obstacle obstacle = new Obstacle(new Vector2(carril += 200, 0));
+                    obstaclesOnScreen[i] = obstacle;
+                    obstaclesOnScreen[i].obstacleID = i;
+                    carriles[i] = carril;
+                }
+                Engine.Debug("Enemies started");
+            }
         }
 
         private int RandomNumber(bool oneintwo, int min, int max)

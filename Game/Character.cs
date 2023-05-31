@@ -16,6 +16,7 @@ namespace Game
         Animation currentAnimation = null;
         Animation idle;
 
+
         public Character(Vector2 initialPos, float speed)
         {
             idle = CreateAnimation("Idle", "", 4, 2);
@@ -24,6 +25,7 @@ namespace Game
             cSpeed = speed;
             currentAnimation = idle;
             currentAnimation.Reset();
+   
         }
 
         public void Start()
@@ -89,8 +91,6 @@ namespace Game
                 return true;
             }
             return false;
-        }
-
-        
+        }        
     }
 }

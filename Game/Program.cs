@@ -23,7 +23,6 @@ namespace Game
             Engine.Initialize("Pruebas", screenWidth, screenHeight);
             GameManager.Instance.InitializeScene();
             GameManager.Instance.SceneChange(0);
-            GameManager.Instance.StartManager();
 
             while (true)
             {
