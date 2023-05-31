@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Obstacle : Character
+    public class Obstacle : Character, IObstacle
     {
         public bool active = false;
         public bool waitingToSpawn = false;
@@ -20,11 +20,6 @@ namespace Game
         {
             transform.position = pos;
             startPos = pos;
-        }
-
-        private void EnemyMovement()
-        {
-            TopToDownMovement();      
         }
 
         public void TopToDownMovement()
@@ -44,7 +39,7 @@ namespace Game
 
         public override void Update()
         {
-            EnemyMovement();           
+            TopToDownMovement();           
             if(transform.position.y >= 1080)
             {
                 Reposition(rnd.Next(100,1820),0);

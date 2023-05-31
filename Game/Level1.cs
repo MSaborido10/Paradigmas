@@ -20,7 +20,7 @@ namespace Game
         private float timeObjective = 15f;
         private bool hasLost=false;
 
-        public void Start()
+        public void Initialize()
         {
             ObstacleManager.Instance.Start();
             characterCollisions.Clear();
@@ -32,12 +32,11 @@ namespace Game
            
         }
 
-        public void SceneUpdate()
+        public void Update()
         {
             ObstacleManager.Instance.Update();
             LevelConditions();
             LevelEntities();
-            Draw();
         }
 
         private void WinCondition()
@@ -83,12 +82,10 @@ namespace Game
             CheckCollision();
         }
 
-        private void Draw()
+        public void Render()
         {
-            Engine.Clear();
             player.playerCharacter.Render();
             ObstacleManager.Instance.Render();
-            Engine.Show();
         }
     }
 }

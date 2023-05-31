@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class GameManager
+    public class GameManager: IUpdateAndRender
     {
         public static Level1 level1;
         public static MainMenu menu1;
@@ -16,6 +16,8 @@ namespace Game
         public IScenes[] scenes;
 
         public IScenes currentScene;
+
+        //public IUpdateAndRender updateAndRender;
 
         private bool isInitialized = false;
 
@@ -42,12 +44,17 @@ namespace Game
                 currentScene = scenes[levelIndex];
             }
 
-            currentScene.Start();
+            currentScene.Initialize();
         }
 
-        public void UpdateManager()
+        public void Update()
         {
-            currentScene.SceneUpdate();
+            currentScene.Update();
+        }
+
+        public void Render()
+        {
+            currentScene.Render();
         }
 
         public void WinCondition()

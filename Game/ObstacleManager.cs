@@ -44,11 +44,13 @@ namespace Game
                 obstaclesOnScreen = new Obstacle[7];
                 for (int i = 0; i < obstaclesOnScreen.Length; i++)
                 {
+                    
                     Console.WriteLine(obstaclesOnScreen[i]);
-                    Obstacle obstacle = new Obstacle(new Vector2(carril += 200, 0));
+                    Obstacle obstacle = ObstacleFactory.CreateObstacle(ObstacleFactory.Obstacles.car);
                     obstaclesOnScreen[i] = obstacle;
                     obstaclesOnScreen[i].obstacleID = i;
                     carriles[i] = carril;
+                    carril += 200;
                 }
                 Engine.Debug("Enemies started");
             }
@@ -91,14 +93,15 @@ namespace Game
         private void ObstacleActivation()
         {
             int index = RandomNumber(false, 0, deactivatedObstacles.Count);
-            if (RandomNumber(false, 0, 5) > 1)
+            if (RandomNumber(false, 0, 7) < 1)
             {
-                deactivatedObstacles[index].Reposition(carriles[deactivatedObstacles[index].obstacleID], 0);
+                deactivatedObstacles[index].Reset();
                 deactivatedObstacles[index].transform.position.y = 0;
                 deactivatedObstacles[index].active = true;
                 deactivatedObstacles[index].waitingToSpawn = false;
                 deactivatedObstacles.Remove(deactivatedObstacles[index]);
             }
+
         }
 
         public void Update()

@@ -40,6 +40,7 @@
     <Compile Include="Animation.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="GameManager.cs" />
+    <Compile Include="IObstacle.cs" />
     <Compile Include="IScenes.cs" />
     <Compile Include="IUpdateAndRender.cs" />
     <Compile Include="Level1.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Obstacle.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="ObstacleFactory.cs" />
     <Compile Include="ObstacleManager.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Promt.cs" />
