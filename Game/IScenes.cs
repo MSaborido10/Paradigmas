@@ -8,7 +8,6 @@ namespace Game
 {
     public interface IScenes : IUpdateAndRender
     {
-        void Initialize();
-       
+        void Initialize();       
     }
 }

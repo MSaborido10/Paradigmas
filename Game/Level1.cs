@@ -16,6 +16,7 @@ namespace Game
         //myplayer.PlayLooping();
         public List<Character> characterCollisions = new List<Character>();
 
+
         private float timer = 0;
         private float timeObjective = 15f;
         private bool hasLost=false;

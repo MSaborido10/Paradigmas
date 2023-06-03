@@ -13,6 +13,9 @@ namespace Game
         public static WinScreen winScreen;
         public static LoseScreen loseScreen;
 
+        public delegate void Init();
+        public event Init OnInitialize;
+
         public IScenes[] scenes;
 
         public IScenes currentScene;
@@ -33,9 +36,14 @@ namespace Game
                 return instance;
             }
         }
-
-  
-
+         
+        public void OnInit()
+        {
+            if (OnInitialize != null)
+            {
+                OnInitialize();
+            }
+        }
         
         public void SceneChange(int levelIndex)
         {
@@ -44,7 +52,9 @@ namespace Game
                 currentScene = scenes[levelIndex];
             }
 
-            currentScene.Initialize();
+            OnInitialize += currentScene.Initialize;
+            OnInit();
+            OnInitialize -= currentScene.Initialize;
         }
 
         public void Update()
