@@ -13,6 +13,7 @@ namespace Game
         public bool waitingToSpawn = false;
         public int obstacleID;
 
+
         Random rnd = new Random();
         public static Vector2 startPos = new Vector2();
 
@@ -24,6 +25,8 @@ namespace Game
             {
                 frames.Add(Engine.GetTexture($"Animations/ObstacleAnimations/{sprite}.png"));
             }
+            obstacleAnimation = new Animation("obstacle01", frames, 1, false);
+            currentAnimation = obstacleAnimation;
             startPos = pos;
 
 
