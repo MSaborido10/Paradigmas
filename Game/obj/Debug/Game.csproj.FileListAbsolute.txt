@@ -300,3 +300,8 @@ C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\obj\Debug\Game.csproj.Suggeste
 C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\obj\Debug\Game.exe
 C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\obj\Debug\Game.pdb
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\0.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\1.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\2.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\3.png
+C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\4.png

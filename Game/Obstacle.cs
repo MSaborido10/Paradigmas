@@ -13,6 +13,8 @@ namespace Game
         public bool waitingToSpawn = false;
         public int obstacleID;
 
+        private Animation currentAnimation = null;
+        private Animation obstacleAnimation;
 
         Random rnd = new Random();
         public static Vector2 startPos = new Vector2();
