@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public abstract class GameObject : IUpdateAndRender
+    public abstract class GameObject : IUpdate, IRender
     {
         public Transform transform;
 

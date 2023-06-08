@@ -32,7 +32,7 @@ namespace Game
            
         }
 
-        public void Update()
+        public void SceneUpdate()
         {
             ObstacleManager.Instance.Update();
             LevelConditions();
@@ -82,7 +82,7 @@ namespace Game
             CheckCollision();
         }
 
-        public void Render()
+        public void SceneRender()
         {
             player.playerCharacter.Render();
             ObstacleManager.Instance.Render();

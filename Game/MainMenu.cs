@@ -21,18 +21,17 @@ namespace Game
             startPromt = new Promt(1, new Vector2(Program.screenWidth, 500));
         }
 
-        public  void Render()
+        public  void SceneRender()
         {
             title.Render();
             startPromt.Render();
         }
 
 
-        public void Update()
+        public void SceneUpdate()
         {
             title.Update();
             startPromt.Update();
-            Render();
         }
     }
 }

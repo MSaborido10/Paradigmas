@@ -23,14 +23,14 @@ namespace Game
             promt = new Promt(2, new Vector2(Program.screenWidth / 2, 500));
         }
 
-        public void Update()
+        public void SceneUpdate()
         {
             title.Update();
             promt.Update();
 
         }
 
-        public void Render()
+        public void SceneRender()
         {
             title.Render();
             promt.Render();

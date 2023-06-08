@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class GameManager: IUpdateAndRender
+    public class GameManager: IUpdate, IRender
     {
         public static Level1 level1;
         public static MainMenu menu1;
@@ -49,12 +49,12 @@ namespace Game
 
         public void Update()
         {
-            currentScene.Update();
+            currentScene.SceneUpdate();
         }
 
         public void Render()
         {
-            currentScene.Render();
+            currentScene.SceneRender();
         }
 
         public void WinCondition()

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public interface IUpdateAndRender
+    public interface IRender
     {
-        void Update();
         void Render();
     }
 }

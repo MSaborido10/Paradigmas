@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public interface IScenes : IUpdateAndRender
+    public interface IScenes
     {
         void Initialize();
-       
+
+        void SceneUpdate();
+
+        void SceneRender();
+
     }
 }

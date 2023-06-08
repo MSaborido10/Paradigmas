@@ -40,9 +40,9 @@
     <Compile Include="Animation.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="GameManager.cs" />
-    <Compile Include="IObstacle.cs" />
     <Compile Include="IScenes.cs" />
-    <Compile Include="IUpdateAndRender.cs" />
+    <Compile Include="IUpdate.cs" />
+    <Compile Include="IRender.cs" />
     <Compile Include="Level1.cs" />
     <Compile Include="LoseScreen.cs" />
     <Compile Include="MainMenu.cs" />

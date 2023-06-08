@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Obstacle : Character, IObstacle
+    public class Obstacle : Character
     {
         public bool active = false;
         public bool waitingToSpawn = false;

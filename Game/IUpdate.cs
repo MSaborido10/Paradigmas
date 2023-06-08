@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public interface IObstacle
+    internal interface IUpdate
     {
-
+        void Update();
     }
 }

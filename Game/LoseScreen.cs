@@ -23,13 +23,13 @@ namespace Game
         }
 
 
-        public void Update()
+        public void SceneUpdate()
         {
         title.Update();
         promt.Update();
         }
 
-        public void Render()
+        public void SceneRender()
         {
             title.Render();
             promt.Render();
