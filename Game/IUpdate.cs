@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal interface IUpdate
+    public interface IUpdate
     {
         void Update();
     }

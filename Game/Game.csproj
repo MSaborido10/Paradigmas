@@ -102,11 +102,21 @@
     <Content Include="Animations\MenuPrompt\1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\ObstacleAnimations\0.png" />
-    <Content Include="Animations\ObstacleAnimations\1.png" />
-    <Content Include="Animations\ObstacleAnimations\2.png" />
-    <Content Include="Animations\ObstacleAnimations\3.png" />
-    <Content Include="Animations\ObstacleAnimations\4.png" />
+    <Content Include="Animations\ObstacleAnimations\0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\ObstacleAnimations\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\ObstacleAnimations\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\ObstacleAnimations\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\ObstacleAnimations\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Animations\PlayerAnimations\0.png" />
     <Content Include="Animations\Titles\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Game.ObstacleFactory;
 
 namespace Game
 {
@@ -15,11 +16,17 @@ namespace Game
         Random rnd = new Random();
         public static Vector2 startPos = new Vector2();
 
-       
-        public Obstacle(Vector2 pos) : base(pos, 200)
+        public Obstacle(Vector2 pos, int sprite) : base(pos, 200)
         {
             transform.position = pos;
+            List<Texture> frames = new List<Texture>();
+            for (int i = 0; i <= 1; i++)
+            {
+                frames.Add(Engine.GetTexture($"Animations/ObstacleAnimations/{sprite}.png"));
+            }
             startPos = pos;
+
+
         }
 
         public void TopToDownMovement()
