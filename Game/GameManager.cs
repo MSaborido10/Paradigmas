@@ -17,8 +17,6 @@ namespace Game
 
         public IScenes currentScene;
 
-        //public IUpdateAndRender updateAndRender;
-
         private bool isInitialized = false;
 
         private static GameManager instance;

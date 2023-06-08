@@ -13,7 +13,7 @@ namespace Game
         public bool waitingToSpawn = false;
         public int obstacleID;
 
-        private Animation currentAnimation = null;
+        //private Animation currentAnimation = null;
         private Animation obstacleAnimation;
 
         Random rnd = new Random();
@@ -28,7 +28,7 @@ namespace Game
                 frames.Add(Engine.GetTexture($"Animations/ObstacleAnimations/{sprite}.png"));
             }
             obstacleAnimation = new Animation("obstacle01", frames, 1, false);
-            currentAnimation = obstacleAnimation;
+            //currentAnimation = obstacleAnimation;
             startPos = pos;
 
 
@@ -58,5 +58,11 @@ namespace Game
                 transform.position.y = 0;
             }
         }
+
+        public override void Render() 
+        {
+            Engine.Draw(obstacleAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
+        }
+
     }
 }
