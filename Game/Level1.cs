@@ -34,6 +34,7 @@ namespace Game
 
         public void SceneUpdate()
         {
+            
             ObstacleManager.Instance.Update();
             LevelConditions();
             LevelEntities();
