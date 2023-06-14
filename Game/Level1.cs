@@ -16,6 +16,9 @@ namespace Game
         //myplayer.PlayLooping();
         public List<Character> characterCollisions = new List<Character>();
 
+        public delegate void Events();
+        public event Events OnLoss;
+        public event Events OnWin;
 
         private float timer;
         private float timeObjective = 15f;
@@ -30,24 +33,27 @@ namespace Game
             {
                 characterCollisions.Add(obstacle);
             }
-            player = new Player(new Vector2(960, 540));
-           
+            OnLoss += LoseCondition;
+            OnWin += WinCondition;
+            player = new Player(new Vector2(960, 540));           
         }
 
         public void Update()
         {
+            timer += Program.deltaTime;
+            Console.WriteLine(timer);
             ObstacleManager.Instance.Update();
             LevelConditions();
             LevelEntities();
         }
 
         private void WinCondition()
-        {
-            timer += Program.deltaTime;
+        {            
             if (timer >= timeObjective)
             {
-                GameManager.Instance.WinCondition();
+                OnWin -= WinCondition;
                 timer = 0;
+                GameManager.Instance.WinCondition();
             }
         }
 
@@ -55,8 +61,10 @@ namespace Game
         {            
             if(hasLost) 
             {
-                GameManager.Instance.LoseCondition();
+                timer = 0;
                 hasLost = false;
+                OnLoss -= LoseCondition;
+                GameManager.Instance.LoseCondition();
             }
         }
 
@@ -79,8 +87,8 @@ namespace Game
 
         private void LevelConditions()
         {
-            WinCondition();
-            LoseCondition();
+            OnWin();
+            OnLoss();
             CheckCollision();
         }
 
