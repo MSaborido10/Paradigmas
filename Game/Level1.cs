@@ -17,12 +17,13 @@ namespace Game
         public List<Character> characterCollisions = new List<Character>();
 
 
-        private float timer = 0;
+        private float timer;
         private float timeObjective = 15f;
         private bool hasLost=false;
 
         public void Initialize()
         {
+            timer = 0;
             ObstacleManager.Instance.Start();
             characterCollisions.Clear();
             foreach(var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
