@@ -305,3 +305,8 @@ C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ObstacleA
 C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\2.png
 C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\3.png
 C:\Users\vjuegos\Documents\GitHub\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\4.png
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\0.png
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\1.png
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\2.png
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\3.png
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\4.png

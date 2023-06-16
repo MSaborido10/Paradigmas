@@ -18,7 +18,7 @@ namespace Game
                 case Obstacles.car:
                     int result = 0;
                     Random rnd = new Random();
-                    result = rnd.Next(1, 5);
+                    result = rnd.Next(2, 5);
                     return new Obstacle(new Vector2(0,0), result);
 
             }
