@@ -38,11 +38,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
-    <Compile Include="Bullet.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="IObstacle.cs" />
+    <Compile Include="IScenes.cs" />
+    <Compile Include="IUpdateAndRender.cs" />
+    <Compile Include="Level1.cs" />
+    <Compile Include="LoseScreen.cs" />
+    <Compile Include="MainMenu.cs" />
+    <Compile Include="Obstacle.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="ObstacleFactory.cs" />
+    <Compile Include="ObstacleManager.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Promt.cs" />
+    <Compile Include="ScoreManager.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Screen.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="WinScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="0.png">
@@ -57,136 +72,49 @@
     <Content Include="3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle1.png">
+    <Content Include="Animations\BackgroundAnimations\0.png" />
+    <Content Include="Animations\BackgroundAnimations\1.png" />
+    <Content Include="Animations\BackgroundAnimations\2.png" />
+    <Content Include="Animations\BackgroundAnimations\3.png" />
+    <Content Include="Animations\BackgroundAnimations\4.png" />
+    <Content Include="Animations\BackgroundAnimations\5.png" />
+    <Content Include="Animations\Buttons\Quit\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle10.png">
+    <Content Include="Animations\Buttons\Quit\1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle11.png">
+    <Content Include="Animations\Buttons\Start\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle12.png">
+    <Content Include="Animations\Buttons\Start\1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle2.png">
+    <Content Include="Animations\ContinuePromt\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle3.png">
+    <Content Include="Animations\ContinuePromt\1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle4.png">
+    <Content Include="Animations\MenuPrompt\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle5.png">
+    <Content Include="Animations\MenuPrompt\1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle6.png">
+    <Content Include="Animations\ObstacleAnimations\0.png" />
+    <Content Include="Animations\ObstacleAnimations\1.png" />
+    <Content Include="Animations\ObstacleAnimations\2.png" />
+    <Content Include="Animations\ObstacleAnimations\3.png" />
+    <Content Include="Animations\ObstacleAnimations\4.png" />
+    <Content Include="Animations\PlayerAnimations\0.png" />
+    <Content Include="Animations\Titles\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle7.png">
+    <Content Include="Animations\Titles\1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\player\idle8.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle9.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left10.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left11.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left12.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left5.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left6.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left7.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left8.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\idle_left9.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\jump1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\jump2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\jump_left1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\jump_left2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run5.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run6.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run7.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run8.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run_left1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run_left2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run_left3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run_left4.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run_left5.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run_left6.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run_left7.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Animations\player\run_left8.png">
+    <Content Include="Animations\Titles\2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Engine.dll">

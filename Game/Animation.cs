@@ -22,6 +22,11 @@ namespace Game
             this.isLoopEnabled = isLoopEnabled;
         }
 
+        //public void ChangeFrame(int targetFrame)
+        //{
+        //    this.CurrentFrame = targetFrame;
+        //}
+
         public void Reset()
         {
             this.currentFrameIndex = 0;
@@ -50,5 +55,24 @@ namespace Game
                 }
             }
         }
+
+        //public Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed)
+        //{
+        //    // Idle Animation
+        //    List<Texture> animationFrames = new List<Texture>();
+
+        //    for (int i = 1; i < p_texturesAmount; i++)
+        //    {
+        //        animationFrames.Add(Engine.GetTexture($"{p_path}{i}.png"));
+        //    }
+
+        //    Animation animation = new Animation(p_animationID, animationFrames, p_animationSpeed, true);
+
+        //    return animation;
+        //}
+
+
+
+
     }
 }

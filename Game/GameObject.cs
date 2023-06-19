@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Game
+{
+    public abstract class GameObject : IUpdateAndRender
+    {
+        public Transform transform;
+
+        public virtual void Update() { }
+
+        public virtual void Render() { }
+    }
+}
