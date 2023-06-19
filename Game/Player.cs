@@ -46,7 +46,6 @@ namespace Game
         {
             transform.position.x -= cSpeed * Program.deltaTime;
             playerCharacter.transform.position.x = transform.position.x;
-
         }
 
         public void RightMovement()
