@@ -8,7 +8,17 @@ namespace Game
 {
     public class Character : GameObject
     {
+<<<<<<< Updated upstream
         protected float cSpeed = 100f;
+=======
+        private static float life = 100f;
+
+        private static int damage;
+
+        private Transform transform;
+
+        private float speed = 0;
+>>>>>>> Stashed changes
 
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
@@ -43,6 +53,15 @@ namespace Game
             Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }
 
+<<<<<<< Updated upstream
+=======
+        public static int DamageLife(int v)
+        {
+            life -= damage;
+
+            return damage;
+        }
+>>>>>>> Stashed changes
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed)
         {

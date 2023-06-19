@@ -30,7 +30,7 @@ namespace Game
             currentAnimation = alive;
         }
 
-        private void Inputs()
+        public void Inputs()
         {
             if (Engine.GetKey(Keys.D) && playerCharacter.transform.position.x + RealWidth <= 1920)
             {
