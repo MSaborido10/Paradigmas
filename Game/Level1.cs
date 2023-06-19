@@ -12,8 +12,6 @@ namespace Game
     {
         private Player player;
 
-        SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
-        //myplayer.PlayLooping();
         public List<Character> characterCollisions = new List<Character>();
 
         public delegate void Events();
@@ -41,7 +39,6 @@ namespace Game
         public void Update()
         {
             timer += Program.deltaTime;
-            Console.WriteLine(timer);
             ObstacleManager.Instance.Update();
             LevelConditions();
             LevelEntities();
