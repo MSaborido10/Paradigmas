@@ -12,49 +12,40 @@ namespace Game
         private static ObstacleManager instance;
         public static ObstacleManager Instance { get { if (instance == null) { instance = new ObstacleManager(); } return instance; } }
 
-        public Obstacle[] obstaclesOnScreen;
+        public List<Obstacle> obstaclesOnScreen = new List<Obstacle>();
 
         private List<Obstacle> deactivatedObstacles = new List<Obstacle>();
 
-        //private int maxObstacles = 5;
-
-        private int[] carriles = new int[7];
-
-        private int carril = 0;
+        private float[] carriles;
 
         private float timer = 0;
 
-        private float spawnRate = 1f;
+        private float spawnRate = 2f;
+
+        private Pool<ObstacleFactory.Obstacles, Obstacle> obstaclePool;
 
         public void Start()
         {
-            carril = 0;
+            if (obstaclePool == null)
+            {
+                obstaclePool = new Pool<ObstacleFactory.Obstacles, Obstacle>(CallFactory);
+            }
 
-            if (obstaclesOnScreen != null && obstaclesOnScreen.Length <= 7)
+            if (carriles == null)
             {
-                for (int i = 0; i < obstaclesOnScreen.Length; i++)
+                float carril = 0;
+                carriles = new float[7];
+
+                for (int i = 0; i < carriles.Length; i++)
                 {
-                    Console.WriteLine(obstaclesOnScreen[i]);
-                 
-                    obstaclesOnScreen[i].Reset();
+                    carriles[i] = (carril += 200);
                 }
-                Engine.Debug("Enemies started");
             }
-            else
-            {
-                obstaclesOnScreen = new Obstacle[7];
-                for (int i = 0; i < obstaclesOnScreen.Length; i++)
-                {
-                    
-                    Console.WriteLine(obstaclesOnScreen[i]);
-                    Obstacle obstacle = ObstacleFactory.CreateObstacle(ObstacleFactory.Obstacles.car);
-                    obstaclesOnScreen[i] = obstacle;
-                    obstaclesOnScreen[i].obstacleID = i;
-                    carriles[i] = carril;
-                    carril += 200;
-                }
-                Engine.Debug("Enemies started");
-            }
+        }
+
+        public Obstacle CallFactory (ObstacleFactory.Obstacles id)
+        {
+            return ObstacleFactory.CreateObstacle(id);
         }
 
         private int RandomNumber(bool oneintwo, int min, int max)
@@ -79,36 +70,65 @@ namespace Game
             }
         }
 
-        private void UpdateList()
+        private void SendToPool()
         {
-            foreach (var obstacle in obstaclesOnScreen)
+            //foreach (var obstacle in obstaclesOnScreen)
+            //{
+            //    if (obstacle.active == false)
+            //    {
+            //        obstaclePool.AddItem(obstacle);
+            //        obstaclesOnScreen.Remove(obstacle);
+            //    }
+            //}
+            for (int i = obstaclesOnScreen.Count - 1; i >= 0; i--)
             {
-                if (obstacle.active == false && obstacle.waitingToSpawn == false)
+                var obstacle = obstaclesOnScreen[i];
+                if (obstacle.active == false)
                 {
-                    deactivatedObstacles.Add(obstacle);
-                    obstacle.waitingToSpawn = true;
+                    obstaclePool.AddItem(obstacle);
+                    obstaclesOnScreen.RemoveAt(i);
                 }
             }
         }
 
         private void ObstacleActivation()
         {
-            int index = RandomNumber(false, 0, deactivatedObstacles.Count);
-            if (RandomNumber(false, 0, 7) < 1)
+            Obstacle obstacle;
+
+            bool positionCheck = false;
+
+            obstacle = obstaclePool.GetItem(ObstacleFactory.Obstacles.car);
+
+            while(positionCheck == false)
             {
-                deactivatedObstacles[index].Reset();
-                deactivatedObstacles[index].transform.position.y = 0;
-                deactivatedObstacles[index].active = true;
-                deactivatedObstacles[index].waitingToSpawn = false;
-                deactivatedObstacles.Remove(deactivatedObstacles[index]);
+                int index = RandomNumber(false, 0, carriles.Length);
+                float carril = carriles[index];
+                positionCheck = ObstacleSpawnCheck(carril);
+                obstacle.Reposition(carril, 0);
             }
 
+            obstaclesOnScreen.Add(obstacle);
+        }
+
+        private bool ObstacleSpawnCheck(float spawnPosX)
+        {
+            foreach (var obstacle in obstaclesOnScreen)
+            {
+                if (obstacle.transform.position.x == spawnPosX)
+                {
+                    if (obstacle.transform.position.y > 0 && obstacle.transform.position.y < 20)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         public void Update()
         {
-            UpdateList();
-            for (int i = 0; i < obstaclesOnScreen.Length; i++)
+            SendToPool();
+            for (int i = 0; i < obstaclesOnScreen.Count; i++)
             {
                 obstaclesOnScreen[i].Update();
             }
@@ -117,7 +137,7 @@ namespace Game
 
         public void Render()
         {
-            for (int i = 0; i < obstaclesOnScreen.Length; i++)
+            for (int i = 0; i < obstaclesOnScreen.Count; i++)
             {
                 obstaclesOnScreen[i].Render();
             }

@@ -53,6 +53,7 @@
     <Compile Include="ObstacleFactory.cs" />
     <Compile Include="ObstacleManager.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Pool.cs" />
     <Compile Include="Promt.cs" />
     <Compile Include="ScoreManager.cs" />
     <Compile Include="Program.cs" />

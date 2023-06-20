@@ -9,7 +9,6 @@ namespace Game
     public static class ObstacleFactory
     {
         public enum Obstacles {car}
-        
 
         public static Obstacle CreateObstacle(Obstacles obstacle)
         {

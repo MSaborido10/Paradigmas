@@ -9,8 +9,7 @@ namespace Game
 {
     public class Obstacle : Character
     {
-        public bool active = false;
-        public bool waitingToSpawn = false;
+        public bool active = true;
         public int obstacleID;
 
         private Animation currentAnimation = null;
@@ -42,20 +41,20 @@ namespace Game
         public void Reposition(float posX, float posY)
         {
             transform.position = new Vector2(posX, posY);
+            active = true;
         }
 
-        public void Reset()
-        {
-            transform.position = startPos;
-        }
+        //public void Reset()
+        //{
+        //    transform.position = startPos;
+        //}
 
         public override void Update()
         {
             TopToDownMovement();           
             if(transform.position.y >= 1080)
             {
-                Reposition(rnd.Next(100,1820),0);
-                transform.position.y = 0;
+                active = false;
             }
         }
 
