@@ -34,7 +34,6 @@ namespace Game
 
         public void SceneUpdate()
         {
-            
             ObstacleManager.Instance.Update();
             LevelConditions();
             LevelEntities();
@@ -79,13 +78,13 @@ namespace Game
         private void LevelConditions()
         {
             WinCondition();
-            LoseCondition();
             CheckCollision();
+            LoseCondition();
         }
 
         public void SceneRender()
         {
-            player.playerCharacter.Render();
+            player.Render();
             ObstacleManager.Instance.Render();
         }
     }

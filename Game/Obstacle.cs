@@ -12,7 +12,6 @@ namespace Game
         public bool active = true;
         public int obstacleID;
 
-        private Animation currentAnimation = null;
         private Animation obstacleAnimation;
 
         Random rnd = new Random();
@@ -27,10 +26,6 @@ namespace Game
                 frames.Add(Engine.GetTexture($"Animations/ObstacleAnimations/{sprite}.png"));
             }
             obstacleAnimation = new Animation("obstacle01", frames, 1, false);
-            currentAnimation = obstacleAnimation;
-            startPos = pos;
-
-
         }
 
         public void TopToDownMovement()
@@ -43,11 +38,6 @@ namespace Game
             transform.position = new Vector2(posX, posY);
             active = true;
         }
-
-        //public void Reset()
-        //{
-        //    transform.position = startPos;
-        //}
 
         public override void Update()
         {

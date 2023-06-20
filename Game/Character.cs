@@ -28,11 +28,6 @@ namespace Game
    
         }
 
-        public void Start()
-        {
-
-        }
-
         public override void Update()
         {
             currentAnimation.Update();
