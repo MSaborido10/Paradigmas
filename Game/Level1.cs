@@ -34,7 +34,7 @@ namespace Game
             ObstacleManager.Instance.OnObstacleCreation += AddToCollisionList;
             OnLoss += LoseCondition;
             OnWin += WinCondition;
-            player = new Player(new Vector2(960, 540));
+            player = new Player(new Vector2(960, Program.screenHeight-250));
         }
         
         public void AddToCollisionList(Obstacle obstacle)
