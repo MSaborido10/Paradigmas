@@ -22,6 +22,10 @@ namespace Game
 
         private Pool<ObstacleFactory.Obstacles, Obstacle> obstaclePool;
 
+        public delegate void CollisionSubscription(Obstacle obstacle);
+
+        public event CollisionSubscription OnObstacleCreation;
+
         public void Start()
         {
             if (obstaclePool == null)
@@ -43,7 +47,11 @@ namespace Game
                     carriles[i] = (carril += 200);
                 }
             }
-            //obstaclesOnScreen.Clear();
+
+            if (obstaclesOnScreen.Count > 0)
+            {
+                obstaclesOnScreen.Clear();
+            }          
         }
 
         public Obstacle CallFactory (ObstacleFactory.Obstacles id)
@@ -99,9 +107,9 @@ namespace Game
                 float carril = carriles[index];
                 positionCheck = ObstacleSpawnCheck(carril);
                 obstacle.Reposition(carril, 0);
-                
-            }            
+            }
             obstaclesOnScreen.Add(obstacle);
+            OnObstacleCreation(obstacle);
         }
 
         private bool ObstacleSpawnCheck(float spawnPosX)
@@ -121,15 +129,12 @@ namespace Game
 
         public void Update()
         {
-            int poolSize;
             SendToPool();
             for (int i = 0; i < obstaclesOnScreen.Count; i++)
             {
                 obstaclesOnScreen[i].Update();
             }
             ActivationTimer();
-            poolSize = obstaclePool.Count();
-            Console.WriteLine(poolSize);
         }
 
         public void Render()

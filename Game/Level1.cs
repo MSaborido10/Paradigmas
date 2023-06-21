@@ -25,11 +25,13 @@ namespace Game
         {
             ObstacleManager.Instance.Start();
             characterCollisions.Clear();
-            foreach(var obstacle in ObstacleManager.Instance.obstaclesOnScreen)
-            {
-                characterCollisions.Add(obstacle);
-            }
+            ObstacleManager.Instance.OnObstacleCreation += AddToCollisionList;
             player = new Player(new Vector2(960, 540));
+        }
+        
+        public void AddToCollisionList(Obstacle obstacle)
+        {
+            characterCollisions.Add(obstacle);
         }
 
         public void SceneUpdate()
