@@ -28,6 +28,7 @@ namespace Game
 
         public void Start()
         {
+            OnObstacleCreation = null;
             if (obstaclePool == null)
             {
                 obstaclePool = new Pool<ObstacleFactory.Obstacles, Obstacle>(CallFactory);

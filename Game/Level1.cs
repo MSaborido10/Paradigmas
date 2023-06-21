@@ -30,7 +30,7 @@ namespace Game
         {
             timer = 0;
             ObstacleManager.Instance.Start();
-            characterCollisions.Clear();
+            characterCollisions.Clear();            
             ObstacleManager.Instance.OnObstacleCreation += AddToCollisionList;
             OnLoss += LoseCondition;
             OnWin += WinCondition;
