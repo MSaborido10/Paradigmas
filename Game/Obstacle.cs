@@ -46,6 +46,7 @@ namespace Game
             {
                 active = false;
             }
+            
         }
 
         public override void Render() 

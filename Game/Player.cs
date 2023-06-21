@@ -8,11 +8,11 @@ namespace Game
 {
     public class Player : Character
     {
-        //public static Vector2 pos = new Vector2();
+        public static Vector2 pos = new Vector2();
 
-        //public Character playerCharacter = new Character(pos, 0);
+        public Character playerCharacter = new Character(pos, 0);
 
-        //private List<Texture> frames = new List<Texture>();
+        private List<Texture> frames = new List<Texture>();
 
 
         private Animation alive;
@@ -41,14 +41,14 @@ namespace Game
         public void LeftMovement()
         {
             transform.position.x -= cSpeed * Program.deltaTime;
-            transform.position.x = transform.position.x;
+            playerCharacter.transform.position.x = transform.position.x;
 
         }
 
         public void RightMovement()
         {
             transform.position.x += cSpeed * Program.deltaTime;
-            transform.position.x = transform.position.x;
+            playerCharacter.transform.position.x = transform.position.x;
         }
 
         public override void Update()

@@ -14,8 +14,6 @@ namespace Game
 
         public List<Obstacle> obstaclesOnScreen = new List<Obstacle>();
 
-        private List<Obstacle> deactivatedObstacles = new List<Obstacle>();
-
         private float[] carriles;
 
         private float timer = 0;
@@ -30,6 +28,10 @@ namespace Game
             {
                 obstaclePool = new Pool<ObstacleFactory.Obstacles, Obstacle>(CallFactory);
             }
+            else
+            {
+                obstaclePool.Empty();
+            }
 
             if (carriles == null)
             {
@@ -41,6 +43,7 @@ namespace Game
                     carriles[i] = (carril += 200);
                 }
             }
+            //obstaclesOnScreen.Clear();
         }
 
         public Obstacle CallFactory (ObstacleFactory.Obstacles id)
@@ -72,21 +75,12 @@ namespace Game
 
         private void SendToPool()
         {
-            //foreach (var obstacle in obstaclesOnScreen)
-            //{
-            //    if (obstacle.active == false)
-            //    {
-            //        obstaclePool.AddItem(obstacle);
-            //        obstaclesOnScreen.Remove(obstacle);
-            //    }
-            //}
             for (int i = obstaclesOnScreen.Count - 1; i >= 0; i--)
-            {
-                var obstacle = obstaclesOnScreen[i];
-                if (obstacle.active == false)
+            {                
+                if (obstaclesOnScreen[i].active == false)
                 {
-                    obstaclePool.AddItem(obstacle);
-                    obstaclesOnScreen.RemoveAt(i);
+                    obstaclePool.AddItem(obstaclesOnScreen[i]);
+                    obstaclesOnScreen.Remove(obstaclesOnScreen[i]);
                 }
             }
         }
@@ -99,14 +93,14 @@ namespace Game
 
             obstacle = obstaclePool.GetItem(ObstacleFactory.Obstacles.car);
 
-            while(positionCheck == false)
+            while (positionCheck == false)
             {
                 int index = RandomNumber(false, 0, carriles.Length);
                 float carril = carriles[index];
                 positionCheck = ObstacleSpawnCheck(carril);
                 obstacle.Reposition(carril, 0);
-            }
-
+                
+            }            
             obstaclesOnScreen.Add(obstacle);
         }
 
@@ -127,12 +121,15 @@ namespace Game
 
         public void Update()
         {
+            int poolSize;
             SendToPool();
             for (int i = 0; i < obstaclesOnScreen.Count; i++)
             {
                 obstaclesOnScreen[i].Update();
             }
             ActivationTimer();
+            poolSize = obstaclePool.Count();
+            Console.WriteLine(poolSize);
         }
 
         public void Render()

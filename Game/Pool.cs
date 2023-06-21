@@ -30,13 +30,23 @@ namespace Game
             {
                 Item = CallFactory(ID);
             }
-
             return Item;
         }
 
         public void AddItem(item Item)
         {
             poolElements.Enqueue(Item);
+        }
+
+        public void Empty()
+        {
+            poolElements.Clear();
+            
+        }
+
+        public int Count()
+        {
+            return poolElements.Count();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Game
     public class Level1 : IScenes
     {
         private Player player;
+        private Background background = new Background();
 
         SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
         //myplayer.PlayLooping();
@@ -29,7 +30,6 @@ namespace Game
                 characterCollisions.Add(obstacle);
             }
             player = new Player(new Vector2(960, 540));
-           
         }
 
         public void SceneUpdate()
@@ -37,6 +37,7 @@ namespace Game
             ObstacleManager.Instance.Update();
             LevelConditions();
             LevelEntities();
+            background.Update();
         }
 
         private void WinCondition()
@@ -84,6 +85,7 @@ namespace Game
 
         public void SceneRender()
         {
+            background.Render();
             player.Render();
             ObstacleManager.Instance.Render();
         }
