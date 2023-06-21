@@ -59,7 +59,7 @@ namespace Game
             return ObstacleFactory.CreateObstacle(id);
         }
 
-        private int RandomNumber(bool oneintwo, int min, int max)
+        public int RandomNumber(bool oneintwo, int min, int max)
         {
             int result = 0;
             Random rnd = new Random();
