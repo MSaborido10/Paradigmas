@@ -41,7 +41,6 @@ namespace Game
         public void Update()
         {
             timer += Program.deltaTime;
-            Console.WriteLine(timer);
             ObstacleManager.Instance.Update();
             LevelConditions();
             LevelEntities();
