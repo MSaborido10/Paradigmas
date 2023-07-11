@@ -16,7 +16,7 @@ namespace Game
 
 
         private Animation alive;
-        public Player(Vector2 pos) : base(pos,1000)
+        public Player(Vector2 pos) : base(pos,800)
         {
             transform.position = pos;
 
@@ -28,11 +28,11 @@ namespace Game
 
         private void Inputs()
         {
-            if (Engine.GetKey(Keys.D) && transform.position.x + RealWidth <= 1920)
+            if (Engine.GetKey(Keys.D) && transform.position.x + RealWidth <= 1550)
             {
                 RightMovement();
             }
-            else if (Engine.GetKey(Keys.A) && transform.position.x - RealWidth >= 0)
+            else if (Engine.GetKey(Keys.A) && transform.position.x - RealWidth >= 350)
             {
                 LeftMovement();
             }

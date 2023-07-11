@@ -18,7 +18,7 @@ namespace Game
         public List<Character> characterCollisions = new List<Character>();
 
         private float timer;
-        private float timeObjective = 15f;
+        private float timeObjective = 60f;
         private bool hasLost=false;
 
         public delegate void Events();

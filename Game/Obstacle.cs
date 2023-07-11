@@ -17,7 +17,7 @@ namespace Game
         Random rnd = new Random();
         public static Vector2 startPos = new Vector2();
 
-        public Obstacle(Vector2 pos, int sprite) : base(pos, 200)
+        public Obstacle(Vector2 pos, int sprite) : base(pos, 1200)
         {
             transform.position = pos;
             List<Texture> frames = new List<Texture>();
