@@ -79,7 +79,16 @@ namespace Game
                 if (player.IsBoxColliding(obstacle))
                 {
                     Console.WriteLine("choca");
-                    hasLost = true;
+                    if (player.currentLives > 0)
+                    {
+                        player.totalDeaths++;
+                        player.inmunity = true;                        
+                        
+                    }
+                    else
+                    {
+                        hasLost = true;
+                    }                     
                 }
             }
         }
@@ -92,7 +101,7 @@ namespace Game
         private void LevelConditions()
         {
             WinCondition();
-            CheckCollision();
+            if (player.inmunity == false) { CheckCollision(); }            
             LoseCondition();
         }
 

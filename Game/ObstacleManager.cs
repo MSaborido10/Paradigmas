@@ -20,11 +20,15 @@ namespace Game
 
         private float spawnRate = 2f;
 
+        private float actualSpawnRate;
+
         private Pool<ObstacleFactory.Obstacles, Obstacle> obstaclePool;
 
         public delegate void CollisionSubscription(Obstacle obstacle);
 
         public event CollisionSubscription OnObstacleCreation;
+
+        private int totalObstaclesSpawned = 0;
 
         public void Start()
         {
@@ -110,6 +114,7 @@ namespace Game
                 obstacle.Reposition(carril, 0);
             }
             obstaclesOnScreen.Add(obstacle);
+            totalObstaclesSpawned++;
             OnObstacleCreation(obstacle);
         }
 
@@ -128,6 +133,11 @@ namespace Game
             return true;
         }
 
+        public float SpawnRateIncrease(int obstaclesSpawned, float sRate)
+        {          
+            return sRate * obstaclesSpawned -0.8f;
+        }
+
         public void Update()
         {
             SendToPool();
@@ -136,6 +146,17 @@ namespace Game
                 obstaclesOnScreen[i].Update();
             }
             ActivationTimer();
+
+            if (totalObstaclesSpawned > 0 && spawnRate > 0.3f)
+            {
+                {
+                    if (actualSpawnRate != spawnRate - SpawnRateIncrease(totalObstaclesSpawned, spawnRate))
+                    {
+                        actualSpawnRate = spawnRate - SpawnRateIncrease(totalObstaclesSpawned, spawnRate);
+                    }
+                }
+            }
+            Console.WriteLine("SpawnRate = " + actualSpawnRate);
         }
 
         public void Render()

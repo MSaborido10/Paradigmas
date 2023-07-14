@@ -14,8 +14,19 @@ namespace Game
 
         private List<Texture> frames = new List<Texture>();
 
+        private int totalLives = 3;
+
+        public int currentLives;
+
+        public int totalDeaths = 0;
+
+        public bool inmunity = false;
+
+        private float inmunityTime = 0;
+
 
         private Animation alive;
+        private Animation inmune;
         public Player(Vector2 pos) : base(pos,800)
         {
             transform.position = pos;
@@ -51,9 +62,38 @@ namespace Game
             playerCharacter.transform.position.x = transform.position.x;
         }
 
+        public int ActualLives(int lives, int deaths)
+        {
+            int result = lives - deaths;
+            return result;
+        }
+
+        public void InmunityTimer()
+        {
+            float timeLimit = 20;
+            if (inmunity)
+            {
+                if (inmunityTime < timeLimit)
+                {
+                    inmunityTime++;
+                }
+                else if (inmunityTime >= timeLimit)
+                {
+                    inmunity = false;
+                }
+            }
+            else { inmunityTime = 0;}
+        }
+
         public override void Update()
         {
             Inputs();
+            if (currentLives != ActualLives(totalLives, totalDeaths))
+            {
+                currentLives = ActualLives(totalLives, totalDeaths);
+            };
+            InmunityTimer();
+            //Console.WriteLine("Lives = "+currentLives);
         }
 
         public override void Render()

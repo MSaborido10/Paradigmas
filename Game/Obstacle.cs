@@ -41,11 +41,14 @@ namespace Game
 
         public override void Update()
         {
-            TopToDownMovement();           
-            if(transform.position.y >= 1080)
+            if (active)
+            {
+                TopToDownMovement();
+            }
+            else if(transform.position.y >= 1080)
             {
                 active = false;
-            }
+            } 
             
         }
 
