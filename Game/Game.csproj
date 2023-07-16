@@ -135,6 +135,9 @@
     <Content Include="ship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sounds\BG_Music.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="XP.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

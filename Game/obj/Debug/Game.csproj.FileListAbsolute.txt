@@ -271,3 +271,4 @@ D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\1.png
 D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\2.png
 D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\3.png
 D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\ObstacleAnimations\4.png
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Sounds\BG_Music.wav

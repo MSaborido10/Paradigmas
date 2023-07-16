@@ -13,12 +13,11 @@ namespace Game
         private Player player;
         private Background background = new Background();
 
-        SoundPlayer myplayer = new SoundPlayer("Sounds/XP.wav");
-        //myplayer.PlayLooping();
+        SoundPlayer BG_Music = new SoundPlayer("Sounds/BG_Music.wav");        
         public List<Character> characterCollisions = new List<Character>();
 
         private float timer;
-        private float timeObjective = 60f;
+        private float timeObjective = 105f;
         private bool hasLost=false;
 
         public delegate void Events();
@@ -35,6 +34,7 @@ namespace Game
             OnLoss += LoseCondition;
             OnWin += WinCondition;
             player = new Player(new Vector2(960, Program.screenHeight-250));
+            BG_Music.Play();
         }
         
         public void AddToCollisionList(Obstacle obstacle)

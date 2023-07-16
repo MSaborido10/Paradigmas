@@ -20,6 +20,10 @@ namespace Game
 
         private float spawnRate = 2f;
 
+        private float spawnRateDecrease = 0.2f;
+
+        private int decreaseInterval = 4;
+
         private float actualSpawnRate;
 
         private Pool<ObstacleFactory.Obstacles, Obstacle> obstaclePool;
@@ -33,6 +37,7 @@ namespace Game
         public void Start()
         {
             actualSpawnRate = spawnRate;
+            totalObstaclesSpawned = 0;
 
             OnObstacleCreation = null;
             if (obstaclePool == null)
@@ -46,12 +51,12 @@ namespace Game
 
             if (carriles == null)
             {
-                float carril = 0;
+                float carril = 300;
                 carriles = new float[7];
 
                 for (int i = 0; i < carriles.Length; i++)
                 {
-                    carriles[i] = (carril += 200);
+                    carriles[i] = (carril += 160);
                 }
             }
 
@@ -135,9 +140,9 @@ namespace Game
             return true;
         }
 
-        public float SpawnRateDecrease(int obstaclesSpawned, float sRate, float decreaseRate)
+        public float SpawnRateDecrease(int obstaclesSpawned, int interval,float sRate, float decreaseRate)
         {            
-            float amount = decreaseRate * obstaclesSpawned;
+            float amount = decreaseRate * (obstaclesSpawned/interval);
             return sRate - amount;
         }
 
@@ -153,9 +158,9 @@ namespace Game
             if (totalObstaclesSpawned > 1 && actualSpawnRate > 0.3f)
             {
                 {
-                    if (actualSpawnRate != SpawnRateDecrease(totalObstaclesSpawned, spawnRate, 0.2f))
+                    if (actualSpawnRate != SpawnRateDecrease(totalObstaclesSpawned,decreaseInterval, spawnRate, spawnRateDecrease))
                     {
-                        actualSpawnRate = SpawnRateDecrease(totalObstaclesSpawned, spawnRate, 0.2f);
+                        actualSpawnRate = SpawnRateDecrease(totalObstaclesSpawned, decreaseInterval, spawnRate, spawnRateDecrease);
                     }
                 }
             }
