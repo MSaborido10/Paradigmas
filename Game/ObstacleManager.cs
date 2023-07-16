@@ -32,6 +32,8 @@ namespace Game
 
         public void Start()
         {
+            actualSpawnRate = spawnRate;
+
             OnObstacleCreation = null;
             if (obstaclePool == null)
             {
@@ -79,7 +81,7 @@ namespace Game
         private void ActivationTimer()
         {
             timer += Program.deltaTime;
-            if (timer >= spawnRate)
+            if (timer >= actualSpawnRate)
             {
                 ObstacleActivation();
                 timer = 0;
@@ -133,9 +135,10 @@ namespace Game
             return true;
         }
 
-        public float SpawnRateIncrease(int obstaclesSpawned, float sRate)
-        {          
-            return sRate * obstaclesSpawned -0.8f;
+        public float SpawnRateDecrease(int obstaclesSpawned, float sRate, float decreaseRate)
+        {            
+            float amount = decreaseRate * obstaclesSpawned;
+            return sRate - amount;
         }
 
         public void Update()
@@ -147,12 +150,12 @@ namespace Game
             }
             ActivationTimer();
 
-            if (totalObstaclesSpawned > 0 && spawnRate > 0.3f)
+            if (totalObstaclesSpawned > 1 && actualSpawnRate > 0.3f)
             {
                 {
-                    if (actualSpawnRate != spawnRate - SpawnRateIncrease(totalObstaclesSpawned, spawnRate))
+                    if (actualSpawnRate != SpawnRateDecrease(totalObstaclesSpawned, spawnRate, 0.2f))
                     {
-                        actualSpawnRate = spawnRate - SpawnRateIncrease(totalObstaclesSpawned, spawnRate);
+                        actualSpawnRate = SpawnRateDecrease(totalObstaclesSpawned, spawnRate, 0.2f);
                     }
                 }
             }
