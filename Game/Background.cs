@@ -24,7 +24,7 @@ namespace Game
                 frames.Add(Engine.GetTexture($"Animations/BackgroundAnimations/{i}.png"));
             }
 
-            backgroundAnimation = new Animation("backgroundAnimation", frames, 0.4f, true);
+            backgroundAnimation = new Animation("backgroundAnimation", frames, 0.3f, true);
             currentAnimation = backgroundAnimation;
         }
         public override void Update()

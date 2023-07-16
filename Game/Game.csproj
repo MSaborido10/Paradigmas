@@ -83,9 +83,6 @@
     <Content Include="Animations\BackgroundAnimations\10.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\BackgroundAnimations\11.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Animations\BackgroundAnimations\2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
