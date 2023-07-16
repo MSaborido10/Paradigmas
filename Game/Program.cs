@@ -9,7 +9,7 @@ namespace Game
     {
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
-        public static int screenWidth = 1920;
+        public static int screenWidth = 1600;
         public static int screenHeight = 1080;
 
 

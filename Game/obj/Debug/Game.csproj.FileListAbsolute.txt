@@ -283,3 +283,15 @@ D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de 
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\7.png
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\8.png
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\9.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\0.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\1.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\10.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\2.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\3.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\4.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\5.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\6.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\7.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\8.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\9.png
+D:\GitHubRepos\Paradigmas\Game\bin\Debug\Sounds\BG_Music.wav

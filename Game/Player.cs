@@ -39,11 +39,11 @@ namespace Game
 
         private void Inputs()
         {
-            if (Engine.GetKey(Keys.D) && transform.position.x + RealWidth <= 1550)
+            if (Engine.GetKey(Keys.D) && transform.position.x + RealWidth <= 1380)
             {
                 RightMovement();
             }
-            else if (Engine.GetKey(Keys.A) && transform.position.x - RealWidth >= 350)
+            else if (Engine.GetKey(Keys.A) && transform.position.x - RealWidth >= 190)
             {
                 LeftMovement();
             }
