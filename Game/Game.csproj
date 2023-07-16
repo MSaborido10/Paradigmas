@@ -74,12 +74,24 @@
     <Content Include="3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\BackgroundAnimations\0.png" />
-    <Content Include="Animations\BackgroundAnimations\1.png" />
-    <Content Include="Animations\BackgroundAnimations\2.png" />
-    <Content Include="Animations\BackgroundAnimations\3.png" />
-    <Content Include="Animations\BackgroundAnimations\4.png" />
-    <Content Include="Animations\BackgroundAnimations\5.png" />
+    <Content Include="Animations\BackgroundAnimations\0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\BackgroundAnimations\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\BackgroundAnimations\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\BackgroundAnimations\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\BackgroundAnimations\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\BackgroundAnimations\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Animations\Buttons\Quit\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
