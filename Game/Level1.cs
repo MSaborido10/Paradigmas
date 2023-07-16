@@ -55,6 +55,7 @@ namespace Game
         {            
             if (timer >= timeObjective)
             {
+
                 OnWin -= WinCondition; 
                 timer = 0;
                 GameManager.Instance.WinCondition();
@@ -65,6 +66,7 @@ namespace Game
         {            
             if(hasLost) 
             {
+                BG_Music.Stop();
                 timer = 0;
                 hasLost = false;
                 OnLoss -= WinCondition;
