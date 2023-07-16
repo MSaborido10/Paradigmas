@@ -111,7 +111,12 @@ namespace Game
 
             bool positionCheck = false;
 
-            obstacle = obstaclePool.GetItem(ObstacleFactory.Obstacles.car);
+            
+            Random rnd = new Random();
+
+            ObstacleFactory.Obstacles obsRnd = (ObstacleFactory.Obstacles)rnd.Next(0, Enum.GetValues(typeof(ObstacleFactory.Obstacles)).Length);
+
+            obstacle = obstaclePool.GetItem(obsRnd);
 
             while (positionCheck == false)
             {
