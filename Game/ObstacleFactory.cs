@@ -8,21 +8,29 @@ namespace Game
 {
     public static class ObstacleFactory
     {
-        public enum Obstacles {car}
+        public enum Obstacles {car1, car2, car3}
 
         public static Obstacle CreateObstacle(Obstacles obstacle)
         {
             switch(obstacle)
             {
-                case Obstacles.car:
-                    int result = 0;
-                    Random rnd = new Random();
-                    result = rnd.Next(2, 5);
-                    return new Obstacle(new Vector2(0,0), result);
+                case Obstacles.car1:
+                    return new Obstacle(new Vector2(0, 0), 2);
+                    break;
 
+                case Obstacles.car2:
+                    return new Obstacle(new Vector2(0, 0), 3);
+                    break;
+
+                case Obstacles.car3:
+                    return new Obstacle(new Vector2(0, 0), 4);
+                    break;
+
+                default:
+                    return new Obstacle(new Vector2(0, 0), 2);
+                    break;
             }
             return null;
         }
-
     }
 }
