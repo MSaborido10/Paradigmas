@@ -18,11 +18,17 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod2()
         {
-            Character char1 = new Character(new Vector2(0, 0), 0);
-            Character char2 = new Character(new Vector2(100, 100), 0);
+            Player player = new Player(new Vector2(0, 0));
+            int result = player.ActualLives(3, 2);
+            Assert.AreEqual(1, result);
+        }
 
-            bool test2 = char1.IsBoxColliding(char2);
-            Assert.IsFalse(test2);
+        [TestMethod]
+
+        public void TestMethod3()
+        {
+           float result = ObstacleManager.Instance.SpawnRateDecrease(5, 5, 2f, 0.2f);
+            Assert.AreEqual(1.8f, result);
         }
     }
 }

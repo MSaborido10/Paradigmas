@@ -45,3 +45,4 @@ D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de 
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\UnitTestProject1\obj\Debug\UnitTestProject1.csproj.CopyComplete
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\UnitTestProject1\obj\Debug\UnitTestProject1.dll
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\UnitTestProject1\bin\Debug\Sounds\BG_Music.wav
