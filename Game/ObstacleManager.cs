@@ -51,7 +51,7 @@ namespace Game
 
             if (carriles == null)
             {
-                float carril = 300;
+                float carril = 150;
                 carriles = new float[7];
 
                 for (int i = 0; i < carriles.Length; i++)

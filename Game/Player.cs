@@ -10,10 +10,6 @@ namespace Game
     {
         public static Vector2 pos = new Vector2();
 
-        //public Character playerCharacter = new Character(pos, 0);
-
-        //private List<Texture> frames = new List<Texture>();
-
         private int totalLives = 3;
 
         public int currentLives;
@@ -66,14 +62,12 @@ namespace Game
         public void LeftMovement()
         {
             transform.position.x -= cSpeed * Program.deltaTime;
-            //playerCharacter.transform.position.x = transform.position.x;
 
         }
 
         public void RightMovement()
         {
             transform.position.x += cSpeed * Program.deltaTime;
-            //playerCharacter.transform.position.x = transform.position.x;
         }
 
         public int ActualLives(int lives, int deaths)
