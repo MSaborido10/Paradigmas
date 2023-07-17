@@ -118,11 +118,10 @@ namespace Game
             {
                 currentLives = ActualLives(totalLives, totalDeaths);
             };
-            InmunityTimer();
-            if (currentAnimation == alive) { animation = 1;} else { animation = 2;}
+            InmunityTimer();            
             //Console.WriteLine("Lives = "+currentLives);
             //Console.WriteLine("time = " + inmunityTime);
-            Console.WriteLine("animation =" + animation);
+            //Console.WriteLine("animation =" + animation);
         }
 
         public override void Render()
