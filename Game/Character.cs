@@ -25,7 +25,7 @@ namespace Game
             cSpeed = speed;
             currentAnimation = idle;
             currentAnimation.Reset();
-   
+
         }
 
         public override void Update()
@@ -41,7 +41,7 @@ namespace Game
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed)
         {
-            // Idle Animation
+            //Idle Animation
             List<Texture> animationFrames = new List<Texture>();
 
             for (int i = 1; i < p_texturesAmount; i++)

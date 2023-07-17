@@ -10,9 +10,9 @@ namespace Game
     {
         public static Vector2 pos = new Vector2();
 
-        public Character playerCharacter = new Character(pos, 0);
+        //public Character playerCharacter = new Character(pos, 0);
 
-        private List<Texture> frames = new List<Texture>();
+        //private List<Texture> frames = new List<Texture>();
 
         private int totalLives = 3;
 
@@ -24,7 +24,8 @@ namespace Game
 
         private float inmunityTime = 0;
 
-
+        public int animation;
+        private Animation currentAnimation = null;
         private Animation alive;
         private Animation inmune;
         public Player(Vector2 pos) : base(pos,800)
@@ -33,8 +34,21 @@ namespace Game
 
             List<Texture> frames = new List<Texture>();
             frames.Add(Engine.GetTexture($"Animations/PlayerAnimations/0.png"));
-            alive = new Animation("alive", frames, 1, true);
+            alive = new Animation("alive", frames, 1, false);
 
+
+            List<Texture> inmunityFrames = new List<Texture>();
+            for (int i = 0; i <= 1; i++)
+            {
+                inmunityFrames.Add(Engine.GetTexture($"Animations/PlayerAnimations/{i}.png"));
+            }
+
+            inmune = new Animation("inmune", inmunityFrames, 0.3f, true);
+            
+            
+            currentAnimation = alive;
+
+            //currentAnimation.Reset();
         }
 
         private void Inputs()
@@ -52,14 +66,14 @@ namespace Game
         public void LeftMovement()
         {
             transform.position.x -= cSpeed * Program.deltaTime;
-            playerCharacter.transform.position.x = transform.position.x;
+            //playerCharacter.transform.position.x = transform.position.x;
 
         }
 
         public void RightMovement()
         {
             transform.position.x += cSpeed * Program.deltaTime;
-            playerCharacter.transform.position.x = transform.position.x;
+            //playerCharacter.transform.position.x = transform.position.x;
         }
 
         public int ActualLives(int lives, int deaths)
@@ -70,9 +84,9 @@ namespace Game
 
         public void InmunityTimer()
         {
-            float timeLimit = 20;
+            float timeLimit = 120;
             if (inmunity)
-            {
+            {  
                 if (inmunityTime < timeLimit)
                 {
                     inmunityTime++;
@@ -82,23 +96,38 @@ namespace Game
                     inmunity = false;
                 }
             }
-            else { inmunityTime = 0;}
+            else 
+            {
+                inmunityTime = 0; 
+            }
         }
 
         public override void Update()
         {
+            currentAnimation.Update();
+            if (inmunity && currentAnimation != inmune) 
+            { 
+                currentAnimation = inmune;
+            }
+            else if (inmunity == false && currentAnimation != alive)
+            {
+                currentAnimation = alive;
+            }
             Inputs();
             if (currentLives != ActualLives(totalLives, totalDeaths))
             {
                 currentLives = ActualLives(totalLives, totalDeaths);
             };
             InmunityTimer();
+            if (currentAnimation == alive) { animation = 1;} else { animation = 2;}
             //Console.WriteLine("Lives = "+currentLives);
+            //Console.WriteLine("time = " + inmunityTime);
+            Console.WriteLine("animation =" + animation);
         }
 
         public override void Render()
         {
-            Engine.Draw(alive.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
+            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, 0, RealWidth / 2f, RealHeight / 2f);
         }
 
     }

@@ -169,7 +169,7 @@ namespace Game
                     }
                 }
             }
-            Console.WriteLine("SpawnRate = " + actualSpawnRate);
+            //Console.WriteLine("SpawnRate = " + actualSpawnRate);
         }
 
         public void Render()

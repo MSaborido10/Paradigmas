@@ -11,7 +11,7 @@ namespace Game
         private float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         private float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
-        private List<Texture> frames = new List<Texture>();
+        //private List<Texture> frames = new List<Texture>();
 
         Animation currentAnimation = null;
         Animation startPromt;

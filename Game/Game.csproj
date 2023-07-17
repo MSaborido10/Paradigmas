@@ -146,7 +146,12 @@
     <Content Include="Animations\ObstacleAnimations\4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Animations\PlayerAnimations\0.png" />
+    <Content Include="Animations\PlayerAnimations\0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Animations\PlayerAnimations\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Animations\Titles\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
