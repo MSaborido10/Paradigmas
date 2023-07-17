@@ -14,12 +14,12 @@ namespace Game
         private Background background = new Background();
 
         SoundPlayer BG_Music = new SoundPlayer("Sounds/BG_Music.wav");
-        SoundPlayer collisionSound = new SoundPlayer("Sounds/car-collision.wav");
-        
+        SoundPlayer defeatSound = new SoundPlayer("Sounds/car-crash.wav");
+            
         public List<Character> characterCollisions = new List<Character>();
 
         private float timer;
-        private float timeObjective = 105f;
+        private float timeObjective = 112f;
         private bool hasLost=false;
 
         public delegate void Events();
@@ -36,6 +36,7 @@ namespace Game
             OnLoss += LoseCondition;
             OnWin += WinCondition;
             player = new Player(new Vector2(960, Program.screenHeight-250));
+            //collisionSound.Load();
             BG_Music.Play();
         }
         
@@ -85,22 +86,16 @@ namespace Game
                     Console.WriteLine("choca");
                     if (player.currentLives > 0)
                     {
-                        player.TakeDamage();                    
-                        //collisionSound.Play();
-
+                        player.TakeDamage();
                     }
                     else
                     {
+                        defeatSound.PlaySync();
                         hasLost = true;
                     }                     
                 }
             }
         }
-
-        //private void LevelEntities()
-        //{
-        //    player.Update();
-        //}
 
         private void LevelConditions()
         {

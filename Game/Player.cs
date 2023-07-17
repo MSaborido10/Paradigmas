@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace Game
 {
@@ -43,8 +44,6 @@ namespace Game
             
             
             currentAnimation = alive;
-
-            //currentAnimation.Reset();
         }
 
         private void Inputs()
@@ -122,9 +121,9 @@ namespace Game
             {
                 currentLives = ActualLives(totalLives, totalDeaths);
             };                       
-            Console.WriteLine("Lives = "+currentLives);
+            //Console.WriteLine("Lives = "+currentLives);
             //Console.WriteLine("time = " + inmunityTime);
-            Console.WriteLine("inmunity =" + inmunity);
+            //Console.WriteLine("inmunity =" + inmunity);
             //Console.WriteLine("animation =" + animation);
         }
 

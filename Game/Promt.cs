@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace Game
 {
@@ -11,7 +12,7 @@ namespace Game
         private float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         private float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
-        //private List<Texture> frames = new List<Texture>();
+        SoundPlayer engineSound = new SoundPlayer("Sounds/car-engine.wav");
 
         Animation currentAnimation = null;
         Animation startPromt;
@@ -24,7 +25,7 @@ namespace Game
         {
             transform = new Transform(initialPos, 0, new Vector2(1, 1));
             switch (animation_number)
-            {
+            {                
                 case 1:
                     List<Texture> frames = new List<Texture>();
                     for (int i = 0; i <= 1; i++)
@@ -69,12 +70,13 @@ namespace Game
             }
         }
 
-        public override void Update()
+        public override async void Update()
         {
             currentAnimation.Update();
 
             if (Engine.GetKey(Keys.SPACE))
             {
+                engineSound.PlaySync();
                 GameManager.Instance.SceneChange(1);
             }
         }

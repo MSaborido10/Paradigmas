@@ -20,9 +20,9 @@ namespace Game
 
         private float spawnRate = 2f;
 
-        private float spawnRateDecrease = 0.2f;
+        private float spawnRateDecrease = 0.185f;
 
-        private int decreaseInterval = 4;
+        private int decreaseInterval = 3;
 
         private float actualSpawnRate;
 
@@ -160,7 +160,7 @@ namespace Game
             }
             ActivationTimer();
 
-            if (totalObstaclesSpawned > 1 && actualSpawnRate > 0.3f)
+            if (totalObstaclesSpawned > 1 && actualSpawnRate > 0.2f)
             {
                 {
                     if (actualSpawnRate != SpawnRateDecrease(totalObstaclesSpawned,decreaseInterval, spawnRate, spawnRateDecrease))
@@ -169,7 +169,7 @@ namespace Game
                     }
                 }
             }
-            //Console.WriteLine("SpawnRate = " + actualSpawnRate);
+            Console.WriteLine("SpawnRate = " + actualSpawnRate);
         }
 
         public void Render()
