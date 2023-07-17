@@ -13,7 +13,9 @@ namespace Game
         private Player player;
         private Background background = new Background();
 
-        SoundPlayer BG_Music = new SoundPlayer("Sounds/BG_Music.wav");        
+        SoundPlayer BG_Music = new SoundPlayer("Sounds/BG_Music.wav");
+        SoundPlayer collisionSound = new SoundPlayer("Sounds/car-collision.wav");
+        
         public List<Character> characterCollisions = new List<Character>();
 
         private float timer;
@@ -44,10 +46,10 @@ namespace Game
 
         public void SceneUpdate()
         {
+            LevelConditions();
             timer += Program.deltaTime;
             ObstacleManager.Instance.Update();
-            LevelConditions();
-            LevelEntities();
+            player.Update();                       
             background.Update();
         }
 
@@ -83,9 +85,9 @@ namespace Game
                     Console.WriteLine("choca");
                     if (player.currentLives > 0)
                     {
-                        player.totalDeaths++;
-                        player.inmunity = true;                        
-                        
+                        player.TakeDamage();                    
+                        //collisionSound.Play();
+
                     }
                     else
                     {
@@ -95,15 +97,15 @@ namespace Game
             }
         }
 
-        private void LevelEntities()
-        {
-            player.Update();
-        }
+        //private void LevelEntities()
+        //{
+        //    player.Update();
+        //}
 
         private void LevelConditions()
         {
             WinCondition();
-            if (player.inmunity == false) { CheckCollision(); }            
+            if (player.inmunity == false) { CheckCollision(); }        
             LoseCondition();
         }
 

@@ -14,7 +14,7 @@ namespace Game
 
         public int currentLives;
 
-        public int totalDeaths = 0;
+        private int totalDeaths = 0;
 
         public bool inmunity = false;
 
@@ -76,9 +76,18 @@ namespace Game
             return result;
         }
 
+        public void TakeDamage()
+        {
+            if (inmunity == false)
+            {
+                inmunity = true;
+                totalDeaths++;                
+            }
+        }
+
         public void InmunityTimer()
         {
-            float timeLimit = 120;
+            float timeLimit = 200;
             if (inmunity)
             {  
                 if (inmunityTime < timeLimit)
@@ -90,7 +99,7 @@ namespace Game
                     inmunity = false;
                 }
             }
-            else 
+            else
             {
                 inmunityTime = 0; 
             }
@@ -99,6 +108,7 @@ namespace Game
         public override void Update()
         {
             currentAnimation.Update();
+            InmunityTimer();
             if (inmunity && currentAnimation != inmune) 
             { 
                 currentAnimation = inmune;
@@ -111,10 +121,10 @@ namespace Game
             if (currentLives != ActualLives(totalLives, totalDeaths))
             {
                 currentLives = ActualLives(totalLives, totalDeaths);
-            };
-            InmunityTimer();            
-            //Console.WriteLine("Lives = "+currentLives);
+            };                       
+            Console.WriteLine("Lives = "+currentLives);
             //Console.WriteLine("time = " + inmunityTime);
+            Console.WriteLine("inmunity =" + inmunity);
             //Console.WriteLine("animation =" + animation);
         }
 

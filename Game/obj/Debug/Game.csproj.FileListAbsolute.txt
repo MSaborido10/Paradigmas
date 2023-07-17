@@ -285,3 +285,6 @@ D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de 
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\BackgroundAnimations\9.png
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\PlayerAnimations\0.png
 D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Animations\PlayerAnimations\1.png
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Sounds\car-collision.wav
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Sounds\car-crash.wav
+D:\Usuarios\Nicolas\Mis Documentos\Facultad\1ºCuartrimestre 2023\Paradigmas de programacion\TP\Paradigmas\Game\bin\Debug\Sounds\car-engine.wav
