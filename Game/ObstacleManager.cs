@@ -20,7 +20,7 @@ namespace Game
 
         private float spawnRate = 2f;
 
-        private float spawnRateDecrease = 0.185f;
+        private float spawnRateDecrease = 0.186f;
 
         private int decreaseInterval = 3;
 
